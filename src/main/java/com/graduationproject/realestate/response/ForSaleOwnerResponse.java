@@ -1,13 +1,16 @@
 package com.graduationproject.realestate.response;
-import com.graduationproject.realestate.entities.ForSale;
+import com.graduationproject.realestate.entities.ForSaleOwner;
 import com.graduationproject.realestate.entities.ImmovablesTypes;
-import lombok.Data;
-import java.util.Date;
+import lombok.*;
 
-@Data
+import java.time.LocalDate;
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ForSaleOwnerResponse {
-    private Long id;
-    private Date listingDate;
+    private LocalDate listingDate;
     private String advertTitle;
     private Long price;
     private ImmovablesTypes immovablesTypes;
@@ -22,21 +25,24 @@ public class ForSaleOwnerResponse {
     private String lastName;
     private String contactNumber;
 
-    public ForSaleOwnerResponse(ForSale forSale){
-        this.id=forSale.getId();
-        this.listingDate=forSale.getListingDate();
-        this.advertTitle=forSale.getAdvertTitle();
-        this.price=forSale.getPrice();
-        this.immovablesTypes=forSale.getImmovablesTypes();
-        this.numberOfRooms= forSale.getNumberOfRooms();
-        this.buildingAge=forSale.getBuildingAge();
-        this.balcony=forSale.getBalcony();
-        this.furnished=forSale.getFurnished();
-        this.district=forSale.getCity().getDistrict();
-        this.cityName=forSale.getCity().getCityName();
-        this.ownerId=forSale.getOwner().getId();
-        this.firstName=forSale.getOwner().getFirstName();
-        this.lastName=forSale.getOwner().getLastName();
-        this.contactNumber=forSale.getOwner().getContactNumber();
+    public static ForSaleOwnerResponse from(ForSaleOwner forSale) {
+
+        return ForSaleOwnerResponse.builder()
+                .listingDate(forSale.getListingDate())
+                .advertTitle(forSale.getAdvertTitle())
+                .price(forSale.getPrice())
+                .immovablesTypes(forSale.getImmovablesTypes())
+                .numberOfRooms(forSale.getNumberOfRooms())
+                .buildingAge(forSale.getBuildingAge())
+                .balcony(forSale.getBalcony())
+                .furnished(forSale.getFurnished())
+                .district(forSale.getCity().getDistrict())
+                .cityName(forSale.getCity().getCityName())
+                .ownerId(forSale.getOwner().getId())
+                .firstName(forSale.getOwner().getFirstName())
+                .lastName(forSale.getOwner().getLastName())
+                .contactNumber(forSale.getOwner().getContactNumber())
+                .build();
     }
+
 }

@@ -1,16 +1,18 @@
 package com.graduationproject.realestate.response;
 
-import com.graduationproject.realestate.entities.ForRent;
-import com.graduationproject.realestate.entities.ForSale;
+import com.graduationproject.realestate.entities.ForSaleEstateAgent;
 import com.graduationproject.realestate.entities.ImmovablesTypes;
-import lombok.Data;
+import lombok.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class ForSaleEstateAgentResponse {
-    private Long id;
-    private Date listingDate;
+    private LocalDate listingDate;
     private String advertTitle;
     private Long price;
     private ImmovablesTypes immovablesTypes;
@@ -23,23 +25,25 @@ public class ForSaleEstateAgentResponse {
     private Long estateAgentId;
     private String firstName;
     private String lastName;
+    private String companyName;
     private String contactNumber;
 
-    public ForSaleEstateAgentResponse(ForSale forSale){
-        this.id=forSale.getId();
-        this.listingDate=forSale.getListingDate();
-        this.advertTitle=forSale.getAdvertTitle();
-        this.price=forSale.getPrice();
-        this.immovablesTypes=forSale.getImmovablesTypes();
-        this.numberOfRooms= forSale.getNumberOfRooms();
-        this.buildingAge=forSale.getBuildingAge();
-        this.balcony=forSale.getBalcony();
-        this.furnished=forSale.getFurnished();
-        this.district=forSale.getCity().getDistrict();
-        this.cityName=forSale.getCity().getCityName();
-        this.estateAgentId=forSale.getEstateAgent().getId();
-        this.firstName=forSale.getOwner().getFirstName();
-        this.lastName=forSale.getOwner().getLastName();
-        this.contactNumber=forSale.getOwner().getContactNumber();
+
+    public static ForSaleEstateAgentResponse from(ForSaleEstateAgent forSale){
+        return ForSaleEstateAgentResponse.builder()
+                .listingDate(forSale.getListingDate())
+                .advertTitle(forSale.getAdvertTitle())
+                .price(forSale.getPrice())
+                .immovablesTypes(forSale.getImmovablesTypes())
+                .numberOfRooms(forSale.getNumberOfRooms())
+                .buildingAge(forSale.getBuildingAge())
+                .balcony(forSale.getBalcony())
+                .furnished(forSale.getFurnished())
+                .district(forSale.getCity().getDistrict())
+                .cityName(forSale.getCity().getCityName())
+                .estateAgentId(forSale.getEstateAgent().getId())
+                .companyName(forSale.getEstateAgent().getCompanyName())
+                .contactNumber(forSale.getEstateAgent().getContactNumber())
+                .build();
     }
 }

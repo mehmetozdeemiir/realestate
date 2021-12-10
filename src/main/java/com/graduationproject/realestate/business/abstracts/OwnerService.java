@@ -1,10 +1,12 @@
 package com.graduationproject.realestate.business.abstracts;
 import com.graduationproject.realestate.request.OwnerRequest;
+import com.graduationproject.realestate.response.OwnerResponse;
+
 import java.util.List;
 
 public interface OwnerService {
-    OwnerRequest addOwner(OwnerRequest ownerRequest);
-    OwnerRequest updateOwner(Long id , OwnerRequest ownerRequest);
+    OwnerResponse addOwner(OwnerRequest ownerRequest);
+    OwnerResponse updateOwner(Long id , OwnerRequest ownerRequest);
     void deleteOwner(Long id);
-    List<OwnerRequest> getAllOwner();
+    List<OwnerResponse> getAllOwner();
 }

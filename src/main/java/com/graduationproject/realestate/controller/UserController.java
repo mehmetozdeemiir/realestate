@@ -3,6 +3,7 @@ package com.graduationproject.realestate.controller;
 import com.graduationproject.realestate.business.abstracts.UserService;
 import com.graduationproject.realestate.entities.User;
 import com.graduationproject.realestate.request.UserRequest;
+import com.graduationproject.realestate.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -24,18 +25,18 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public UserRequest getUserById(@Valid @PathVariable Long id){
+    public UserResponse getUserById(@Valid @PathVariable Long id){
         return userService.getUserById(id);
     }
 
     @PostMapping("/users")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public UserRequest createUser(@Valid @RequestBody UserRequest userRequest){
+    public UserResponse createUser(@Valid @RequestBody UserRequest userRequest){
         return userService.createUser(userRequest);
     }
 
     @PutMapping("/users/{id}")
-    public UserRequest updateUser(@PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
+    public UserResponse updateUser(@Valid @PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
         return userService.updateUser(id,userRequest);
     }
 
@@ -45,7 +46,7 @@ public class UserController {
     }
 
     @GetMapping("/user/slice")
-    public List<UserRequest> slice(Pageable pageable){
+    public List<UserResponse> slice(Pageable pageable){
         return userService.slice(pageable);
     }
 }

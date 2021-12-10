@@ -1,21 +1,20 @@
 package com.graduationproject.realestate.request;
 
-import com.graduationproject.realestate.entities.User;
+import com.graduationproject.realestate.validation.ValidPassword;
 import lombok.Data;
+import javax.validation.constraints.Size;
 
 @Data
 public class UserRequest {
-    private Long id;
+
+    @Size(min = 3,max=26 ,message = "Maksimum veya Minimum karakter boyutunu aştınız.")
     private String userName;
+
+    @ValidPassword
     private String password;
 
-    public UserRequest(Long id, String userName, String password) {
-        this.id = id;
+    public UserRequest( String userName, String password) {
         this.userName = userName;
         this.password = password;
-    }
-
-    public static UserRequest convert(User user){
-        return new UserRequest(user.getId(), user.getUserName(), user.getPassword());
     }
 }

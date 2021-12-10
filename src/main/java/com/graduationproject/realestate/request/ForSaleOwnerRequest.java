@@ -1,26 +1,27 @@
 package com.graduationproject.realestate.request;
-import com.graduationproject.realestate.entities.ForSale;
 import com.graduationproject.realestate.entities.ImmovablesTypes;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 @Data
 public class ForSaleOwnerRequest {
-    private Long id;
+    @NotNull(message = "Oluşturulma tarihi alanı boş bırakılamaz")
+    private LocalDate listingDate;
 
-    @DateTimeFormat(pattern = "dd.MM.yyyy")
-    private Date listingDate;
-
+    @NotNull(message = "İlan başlığı boş bırakılamaz")
     private String advertTitle;
 
+    @NotNull(message = "Fiyat alanı boş bırakılamaz")
     private Long price;
 
     @Enumerated(EnumType.STRING)
     private ImmovablesTypes immovablesTypes;
 
+    @NotNull(message = "Oda sayısı alanı boş bırakılmaz")
     private String numberOfRooms;
 
     private int buildingAge;
@@ -35,8 +36,7 @@ public class ForSaleOwnerRequest {
 
     private Long ownerId;
 
-    public ForSaleOwnerRequest(Long id, Date listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished) {
-        this.id = id;
+    public ForSaleOwnerRequest( LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
@@ -45,8 +45,5 @@ public class ForSaleOwnerRequest {
         this.buildingAge = buildingAge;
         this.balcony = balcony;
         this.furnished = furnished;
-    }
-    public static ForSaleOwnerRequest convert(ForSale forSale){
-        return new ForSaleOwnerRequest(forSale.getId(), forSale.getListingDate(), forSale.getAdvertTitle(), forSale.getPrice(), forSale.getImmovablesTypes(), forSale.getNumberOfRooms(), forSale.getBuildingAge(), forSale.getBalcony(), forSale.getFurnished());
     }
 }

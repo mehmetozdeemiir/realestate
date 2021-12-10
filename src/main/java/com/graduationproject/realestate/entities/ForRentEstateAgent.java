@@ -1,23 +1,27 @@
 package com.graduationproject.realestate.entities;
 
+import com.graduationproject.realestate.request.ForRentEstateAgentRequest;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.util.Date;
-
+import java.time.LocalDate;
 @Entity
-@Table(name = "forsale")
+@Table(name = "forrentestateagent")
 @Data
 @NoArgsConstructor
-public class ForSale {
+@AllArgsConstructor
+@Builder
+public class ForRentEstateAgent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @DateTimeFormat(pattern = "dd.MM.yyyy")
-    private Date listingDate;
+    private LocalDate listingDate;
 
     private String advertTitle;
 
@@ -34,22 +38,7 @@ public class ForSale {
 
     private Boolean furnished;
 
-    public ForSale(Long id, Date listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, Owner owner, City city) {
-        this.id = id;
-        this.listingDate = listingDate;
-        this.advertTitle = advertTitle;
-        this.price = price;
-        this.immovablesTypes = immovablesTypes;
-        this.numberOfRooms = numberOfRooms;
-        this.buildingAge = buildingAge;
-        this.balcony = balcony;
-        this.furnished = furnished;
-        this.owner = owner;
-        this.city = city;
-    }
-
-    public ForSale(Long id, Date listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
-        this.id = id;
+    public ForRentEstateAgent( LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
@@ -61,10 +50,18 @@ public class ForSale {
         this.estateAgent=estateAgent;
         this.city = city;
     }
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+    public static ForRentEstateAgent from(ForRentEstateAgentRequest estateAgentRentRequest) {
+        return ForRentEstateAgent.builder()
+                .listingDate(estateAgentRentRequest.getListingDate())
+                .advertTitle(estateAgentRentRequest.getAdvertTitle())
+                .price(estateAgentRentRequest.getPrice())
+                .immovablesTypes(estateAgentRentRequest.getImmovablesTypes())
+                .numberOfRooms(estateAgentRentRequest.getNumberOfRooms())
+                .buildingAge(estateAgentRentRequest.getBuildingAge())
+                .balcony(estateAgentRentRequest.getBalcony())
+                .furnished(estateAgentRentRequest.getFurnished())
+                .build();
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "estate_agent_id")

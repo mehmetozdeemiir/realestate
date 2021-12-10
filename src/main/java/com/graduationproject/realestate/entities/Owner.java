@@ -1,8 +1,10 @@
 package com.graduationproject.realestate.entities;
 
+import com.graduationproject.realestate.request.OwnerRequest;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +12,8 @@ import java.util.List;
 @Data
 @Table(name = "owner")
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,18 +22,26 @@ public class Owner {
     private String lastName;
     private String contactNumber;
 
-    public Owner(Long id, String firstName, String lastName, String contactNumber) {
-        this.id = id;
+    public Owner( String firstName, String lastName, String contactNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.contactNumber = contactNumber;
     }
 
-    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<ForRent> forRents;
+    public static Owner from(OwnerRequest ownerRequest){
+        return Owner.builder()
+                .firstName(ownerRequest.getFirstName())
+                .lastName(ownerRequest.getLastName())
+                .contactNumber(ownerRequest.getContactNumber())
+                .build();
+    }
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<ForSale> forSales;
+    private List<ForRentOwner> forRentOwners;
+
+
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
+    private List<ForSaleOwner> forSaleOwners;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")

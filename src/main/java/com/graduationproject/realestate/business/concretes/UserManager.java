@@ -5,6 +5,7 @@ import com.graduationproject.realestate.entities.User;
 import com.graduationproject.realestate.exceptions.ApiRequestException;
 import com.graduationproject.realestate.repository.UserRepository;
 import com.graduationproject.realestate.request.UserRequest;
+import com.graduationproject.realestate.response.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,21 +22,20 @@ public class UserManager implements UserService {
 
     @Override
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS)
-    public UserRequest getUserById(Long id) {
+    public UserResponse getUserById(Long id) {
         final User user=  userRepository.findById(id).orElseThrow(() -> new ApiRequestException("bulunamadı"));
-        return UserRequest.convert(user);
+        return UserResponse.from(user);
     }
-
 
     @Override
     @Transactional
-    public UserRequest createUser(UserRequest userCreateDTO) {
+    public UserResponse createUser(UserRequest userRequest) {
 
-        if (this.userRepository.findByUserNameEquals(userCreateDTO.getUserName()) != null) {
+        if (this.userRepository.findByUserNameEquals(userRequest.getUserName()) != null) {
             throw new ApiRequestException("kullanılan bir kulanıcı adı girdiniz.");
         }
-        final User user = userRepository.save(new User(userCreateDTO.getId(), userCreateDTO.getUserName(), userCreateDTO.getPassword()));
-        return UserRequest.convert(user);
+        final User user = userRepository.save(new User(userRequest.getUserName(), userRequest.getPassword())); //userRequest eliimizde var user a esliyoz
+        return UserResponse.from(user);
     }
 
     @Override
@@ -45,8 +45,8 @@ public class UserManager implements UserService {
     }
 
     @Override
-    public List<UserRequest> slice(Pageable pageable) {
-        return userRepository.findAll(pageable).stream().map(UserRequest::convert).collect(Collectors.toList());
+    public List<UserResponse> slice(Pageable pageable) {
+        return userRepository.findAll(pageable).stream().map(UserResponse::from).collect(Collectors.toList());
     }
 
     @Override
@@ -61,16 +61,15 @@ public class UserManager implements UserService {
 
     @Override
     @Transactional
-    public UserRequest updateUser(Long id, UserRequest userUpdateDTO) {
-        if (this.userRepository.findByUserNameEquals(userUpdateDTO.getUserName())!=null){
+    public UserResponse updateUser(Long id, UserRequest userRequest) {
+        if (this.userRepository.findByUserNameEquals(userRequest.getUserName())!=null){
             throw new ApiRequestException("Kullanılan bir kullanıcı adını güncelleyemezsiniz..");
         }
         final User user= userRepository.findById(id).orElseThrow(()-> new ApiRequestException("güncellenemedi"));
-        user.setId(userUpdateDTO.getId());
-        user.setUserName(userUpdateDTO.getUserName());
-        user.setPassword(userUpdateDTO.getPassword());
+        user.setUserName(userRequest.getUserName());
+        user.setPassword(userRequest.getPassword());
         final User updatedUser=userRepository.save(user);
-        return UserRequest.convert(updatedUser);
+        return UserResponse.from(updatedUser);
     }
 
     @Override

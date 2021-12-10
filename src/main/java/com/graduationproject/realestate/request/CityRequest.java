@@ -1,22 +1,21 @@
 package com.graduationproject.realestate.request;
-
-import com.graduationproject.realestate.entities.City;
 import lombok.Data;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Data
 public class CityRequest {
-    private Long id;
+    @NotEmpty(message = "Şehir alanı boş bırakılamaz")
+    @Size(min = 2,max = 40)
     private String cityName;
+
+    @NotEmpty(message = " Semt alanı boş bırakılamaz")
+    @Size(min = 2,max = 40)
     private String district;
 
-
-    public CityRequest(Long id, String cityName, String district) {
-        this.id = id;
+    public CityRequest( String cityName, String district) {
         this.cityName = cityName;
         this.district = district;
-    }
-
-    public static CityRequest convert(City city){
-        return new CityRequest(city.getId(),city.getCityName(),city.getDistrict());
     }
 }

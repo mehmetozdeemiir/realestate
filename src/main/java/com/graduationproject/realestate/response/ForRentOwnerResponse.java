@@ -1,15 +1,19 @@
 package com.graduationproject.realestate.response;
 
-import com.graduationproject.realestate.entities.ForRent;
+import com.graduationproject.realestate.entities.ForRentOwner;
 import com.graduationproject.realestate.entities.ImmovablesTypes;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-
-import java.util.Date;
+import lombok.NoArgsConstructor;
+import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ForRentOwnerResponse {
-    private Long id;
-    private Date listingDate;
+    private LocalDate listingDate;
     private String advertTitle;
     private Long price;
     private ImmovablesTypes immovablesTypes;
@@ -24,21 +28,23 @@ public class ForRentOwnerResponse {
     private String lastName;
     private String contactNumber;
 
-    public ForRentOwnerResponse(ForRent forRent){
-        this.id=forRent.getId();
-        this.listingDate=forRent.getListingDate();
-        this.advertTitle=forRent.getAdvertTitle();
-        this.price=forRent.getPrice();
-        this.immovablesTypes=forRent.getImmovablesTypes();
-        this.numberOfRooms= forRent.getNumberOfRooms();
-        this.buildingAge=forRent.getBuildingAge();
-        this.balcony=forRent.getBalcony();
-        this.furnished=forRent.getFurnished();
-        this.district=forRent.getCity().getDistrict();
-        this.cityName=forRent.getCity().getCityName();
-        this.ownerId=forRent.getOwner().getId();
-        this.firstName=forRent.getOwner().getFirstName();
-        this.lastName=forRent.getOwner().getLastName();
-        this.contactNumber=forRent.getOwner().getContactNumber();
+    public static ForRentOwnerResponse from(ForRentOwner forRent) {
+
+       return ForRentOwnerResponse.builder()
+                .listingDate(forRent.getListingDate())
+                .advertTitle(forRent.getAdvertTitle())
+                .price(forRent.getPrice())
+                .immovablesTypes(forRent.getImmovablesTypes())
+                .numberOfRooms(forRent.getNumberOfRooms())
+                .buildingAge(forRent.getBuildingAge())
+                .balcony(forRent.getBalcony())
+                .furnished(forRent.getFurnished())
+                .district(forRent.getCity().getDistrict())
+                .cityName(forRent.getCity().getCityName())
+                .ownerId(forRent.getOwner().getId())
+                .firstName(forRent.getOwner().getFirstName())
+                .lastName(forRent.getOwner().getLastName())
+                .build();
     }
 }
+//Lombok Builder  ı allargs noargs ile kullan arastır
