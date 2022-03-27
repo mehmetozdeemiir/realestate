@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,16 +23,16 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<ForRentOwner> forRentOwners;
+    private Set<ForRentOwner> forRentOwners;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<ForRentEstateAgent> forRentEstateAgents;
+    private Set<ForRentEstateAgent> forRentEstateAgents;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<ForSaleOwner> forSaleOwners;
+    private Set<ForSaleOwner> forSaleOwners;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<ForSaleEstateAgent> forSaleEstateAgents;
+    private Set<ForSaleEstateAgent> forSaleEstateAgents;
 
     public User(String userName, String password) {
         this.userName = userName;

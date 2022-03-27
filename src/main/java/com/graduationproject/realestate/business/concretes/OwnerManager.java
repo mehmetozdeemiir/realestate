@@ -8,7 +8,6 @@ import com.graduationproject.realestate.response.OwnerResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -41,6 +40,10 @@ public class OwnerManager implements OwnerService {
 
     @Override
     public List<OwnerResponse> getAllOwner() {
-        return ownerRepository.findAll().stream().map(OwnerResponse::from).collect(Collectors.toList());
+        return ownerRepository
+                .findAll()
+                .stream()
+                .map(OwnerResponse::from)
+                .toList();
     }
 }

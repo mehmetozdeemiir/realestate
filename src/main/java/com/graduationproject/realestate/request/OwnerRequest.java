@@ -21,11 +21,6 @@ public class OwnerRequest {
     private String contactNumber;
     //şehir ismine gerek yok satan veya kiralayan hangi şehirde olduğu çok önemli değil gibi gerekirse eklenir
 
-    public OwnerRequest( String firstName, String lastName, String contactNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.contactNumber = contactNumber;
-    }
 
 
 }

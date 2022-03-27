@@ -1,19 +1,18 @@
 package com.graduationproject.realestate.entities;
-
 import com.graduationproject.realestate.request.CityRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="city")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class City {
     @Id
@@ -42,6 +41,7 @@ public class City {
     @OneToMany(mappedBy = "city", fetch = FetchType.LAZY)
     private List<EstateAgent> estateAgents;
 
+
     public static City from (CityRequest cityRequest){
         return City.builder()
                 .district(cityRequest.getDistrict())
@@ -52,5 +52,12 @@ public class City {
     public City(String cityName, String district) {
         this.cityName = cityName;
         this.district = district;
+    }
+
+    public City(Long id,  String cityName,String district) {
+        this.id = id;
+        this.cityName = cityName;
+        this.district = district;
+
     }
 }

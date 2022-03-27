@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -24,15 +24,18 @@ public class EstateAgent {
 
 
     @OneToMany(mappedBy = "estateAgent", fetch = FetchType.LAZY)
-    private List<ForRentEstateAgent> forRentEstateAgents;
+    private Set<ForRentEstateAgent> forRentEstateAgents;
 
     @OneToMany(mappedBy = "estateAgent", fetch = FetchType.LAZY)
-    private List<ForSaleEstateAgent> forSaleEstateAgents;
+    private Set<ForSaleEstateAgent> forSaleEstateAgents;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")
     private City city;
 
+    //dışarıdan ilk istek atıldığında elinde request var. akış bununla başlıyor. sen bunu dbye kaydetmek istiyorsun ama db'nin anladığı request değil entity.
+    // yani reqeusti entity'e çevirmen lazım. şimdi elimizde entity de var. daha sonra iş bitince geriye bir şey return etmen lazım. burda da entity'i
+    // response a çevirip onu return ediyorsun
     public static EstateAgent from(EstateAgentRequest estateAgentRequest){
         return EstateAgent.builder()
                 .companyName(estateAgentRequest.getCompanyName())

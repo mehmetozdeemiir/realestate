@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -37,11 +38,11 @@ public class Owner {
     }
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<ForRentOwner> forRentOwners;
+    private Set<ForRentOwner> forRentOwners;
 
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
-    private List<ForSaleOwner> forSaleOwners;
+    private Set<ForSaleOwner> forSaleOwners;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "city_id")

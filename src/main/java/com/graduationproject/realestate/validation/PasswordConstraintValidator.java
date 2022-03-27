@@ -2,7 +2,6 @@ package com.graduationproject.realestate.validation;
 
 import com.google.common.base.Joiner;
 import org.passay.*;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.Arrays;
@@ -11,6 +10,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 {
     @Override
     public void initialize(ValidPassword arg0) {
+        //sonarlint kızdı
     }
 
     @Override

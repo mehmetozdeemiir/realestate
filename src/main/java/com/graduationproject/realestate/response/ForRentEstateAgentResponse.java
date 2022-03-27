@@ -1,6 +1,5 @@
 package com.graduationproject.realestate.response;
 
-
 import com.graduationproject.realestate.entities.ForRentEstateAgent;
 import com.graduationproject.realestate.entities.ImmovablesTypes;
 import lombok.AllArgsConstructor;

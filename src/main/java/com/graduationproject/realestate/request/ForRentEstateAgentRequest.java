@@ -4,9 +4,7 @@ import lombok.Data;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
-
 
 @Data
 public class ForRentEstateAgentRequest {
@@ -26,6 +24,7 @@ public class ForRentEstateAgentRequest {
     @NotNull(message = "Oda sayısı alanı boş bırakılmaz")
     private String numberOfRooms;
 
+    @NotNull(message = "Bina Yaşı alanı boş bırakılmaz")
     private int buildingAge;
 
     private Boolean balcony;
@@ -37,17 +36,4 @@ public class ForRentEstateAgentRequest {
     private String cityName;
 
     private Long estateAgentId;
-
-    public ForRentEstateAgentRequest(LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished) {
-        this.listingDate = listingDate;
-        this.advertTitle = advertTitle;
-        this.price = price;
-        this.immovablesTypes = immovablesTypes;
-        this.numberOfRooms = numberOfRooms;
-        this.buildingAge = buildingAge;
-        this.balcony = balcony;
-        this.furnished = furnished;
-    }
-
-
 }

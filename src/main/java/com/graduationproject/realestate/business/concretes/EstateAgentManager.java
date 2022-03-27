@@ -11,7 +11,6 @@ import com.graduationproject.realestate.response.EstateAgentResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +28,7 @@ public class EstateAgentManager implements EstateAgentService {
 
     @Override
     public EstateAgentResponse updateEstateAgent(Long id, EstateAgentRequest estateAgentRequest) {
-        EstateAgent estateAgent=estateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"));;
+        EstateAgent estateAgent=estateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"));
         estateAgent.setId(id);
         estateAgent.setCompanyName(estateAgentRequest.getCompanyName());
         estateAgent.setContactNumber(estateAgentRequest.getContactNumber());
@@ -39,12 +38,16 @@ public class EstateAgentManager implements EstateAgentService {
 
     @Override
     public void deleteEstateAgent(Long id) {
-        EstateAgent estateAgent=estateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Silinemedi. İlgili kayıt bulunamadı"));;
+        EstateAgent estateAgent=estateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Silinemedi. İlgili kayıt bulunamadı"));
         estateAgentRepository.deleteById(estateAgent.getId());
     }
 
     @Override
     public List<EstateAgentResponse> getAllEstateAgent() {
-        return estateAgentRepository.findAll().stream().map(EstateAgentResponse::from).collect(Collectors.toList());
+        return estateAgentRepository
+                .findAll()
+                .stream()
+                .map(EstateAgentResponse::from)
+                .toList();
     }
 }

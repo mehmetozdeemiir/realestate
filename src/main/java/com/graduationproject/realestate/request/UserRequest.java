@@ -12,9 +12,4 @@ public class UserRequest {
 
     @ValidPassword
     private String password;
-
-    public UserRequest( String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
 }

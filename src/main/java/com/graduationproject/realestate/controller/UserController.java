@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @GetMapping("/users/{id}")
-    public UserResponse getUserById(@Valid @PathVariable Long id){
+    public UserResponse getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @PutMapping("/users/{id}")
-    public UserResponse updateUser(@Valid @PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
+    public UserResponse updateUser( @PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
         return userService.updateUser(id,userRequest);
     }
 

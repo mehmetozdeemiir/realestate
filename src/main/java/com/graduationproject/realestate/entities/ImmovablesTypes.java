@@ -1,11 +1,11 @@
 package com.graduationproject.realestate.entities;
 
-public enum ImmovablesTypes {
+public enum ImmovablesTypes{
     EV,
     DÜKKAN,
     ARSA,
     YALI,
     VİLLA,
-    MÜSTAKİLEV,
+    MÜSTAKİL_EV,
     YAZLIK
 }

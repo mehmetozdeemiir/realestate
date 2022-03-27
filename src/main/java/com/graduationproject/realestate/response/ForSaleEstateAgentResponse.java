@@ -23,8 +23,6 @@ public class ForSaleEstateAgentResponse {
     private String district;
     private String cityName;
     private Long estateAgentId;
-    private String firstName;
-    private String lastName;
     private String companyName;
     private String contactNumber;
 

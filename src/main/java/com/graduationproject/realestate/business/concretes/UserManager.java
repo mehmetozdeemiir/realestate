@@ -46,7 +46,7 @@ public class UserManager implements UserService {
 
     @Override
     public List<UserResponse> slice(Pageable pageable) {
-        return userRepository.findAll(pageable).stream().map(UserResponse::from).collect(Collectors.toList());
+        return userRepository.findAll(pageable).stream().map(UserResponse::from).toList();
     }
 
     @Override
