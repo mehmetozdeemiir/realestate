@@ -1,0 +1,694 @@
+2022-02-03 21:52:18,268 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 13924 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 21:52:18,274 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 21:52:18,379 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 21:52:18,380 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 21:52:20,049 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 21:52:20,188 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 125 ms. Found 8 JPA repository interfaces.
+2022-02-03 21:52:22,116 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 21:52:22,138 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 21:52:22,139 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 21:52:22,404 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 21:52:22,404 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4022 ms
+2022-02-03 21:52:22,791 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 21:52:22,926 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 21:52:23,246 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 21:52:23,436 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 21:52:23,894 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 21:52:23,934 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 21:52:26,025 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 21:52:26,037 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 21:52:26,725 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 21:52:28,695 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78970657, org.springframework.security.web.context.SecurityContextPersistenceFilter@78b9b04c, org.springframework.security.web.header.HeaderWriterFilter@24db5cff, org.springframework.web.filter.CorsFilter@60ab8c1d, org.springframework.security.web.authentication.logout.LogoutFilter@b263302, com.graduationproject.realestate.security.JwtAuthenticationFilter@21665ad3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c381a6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21d90d80, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7af334af, org.springframework.security.web.session.SessionManagementFilter@18471607, org.springframework.security.web.access.ExceptionTranslationFilter@2185dcc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@280d88b8]
+2022-02-03 21:52:28,744 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-03 21:52:29,070 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-02-03 21:52:29,660 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-03 21:52:29,661 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-02-03 21:52:29,701 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-02-03 21:52:29,782 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-02-03 21:52:30,119 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_1
+2022-02-03 21:52:30,122 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteRentUsingDELETE_1
+2022-02-03 21:52:30,127 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_1
+2022-02-03 21:52:30,131 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_1
+2022-02-03 21:52:30,135 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_1
+2022-02-03 21:52:30,138 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_1
+2022-02-03 21:52:30,154 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForRentCityWithParamUsingGET_1
+2022-02-03 21:52:30,183 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_2
+2022-02-03 21:52:30,187 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_2
+2022-02-03 21:52:30,194 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_2
+2022-02-03 21:52:30,197 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_2
+2022-02-03 21:52:30,199 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_2
+2022-02-03 21:52:30,227 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_3
+2022-02-03 21:52:30,232 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_3
+2022-02-03 21:52:30,237 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByCityNameUsingGET_1
+2022-02-03 21:52:30,240 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_3
+2022-02-03 21:52:30,243 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_3
+2022-02-03 21:52:30,247 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllCheapHouseByCityNameUsingGET_1
+2022-02-03 21:52:30,249 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForSaleCityWithParamUsingGET_1
+2022-02-03 21:52:30,477 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RealestateApplication in 13.212 seconds (JVM running for 14.67)
+2022-02-03 21:52:39,204 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 21:52:39,205 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-02-03 21:52:39,207 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-1] Completed initialization in 1 ms
+2022-02-03 21:54:02,130 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-5] getAllForRentOwnerByCityName metodu başladı
+2022-02-03 21:54:02,131 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-5] İstek atılan değerler: Şehir ismi: Ankara 
+2022-02-03 21:56:03,473 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-8] getAllForRentOwnerByCityName metodu başladı
+2022-02-03 21:56:03,474 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-8] İstek atılan değerler: Şehir ismi: Ankara 
+2022-02-03 21:57:29,222 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-2] getAllForRentOwnerByCityName metodu başladı
+2022-02-03 21:57:29,224 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-2] İstek atılan değerler: Şehir ismi: Elazığ 
+2022-02-03 22:01:45,757 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-3] getAllByPrice metodu başladı
+2022-02-03 22:01:45,758 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-3] İstek atılan değerler: Fiyat: 2901
+2022-02-03 22:06:35,410 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-9] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'com.graduationproject.realestate.entities.ImmovablesTypes'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@org.springframework.web.bind.annotation.RequestParam com.graduationproject.realestate.entities.ImmovablesTypes] for value 'Villa'; nested exception is java.lang.IllegalArgumentException: No enum constant com.graduationproject.realestate.entities.ImmovablesTypes.Villa]
+2022-02-03 22:07:16,123 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-2] getAllByImmovableTypes metodu başladı
+2022-02-03 22:07:16,123 INFO com.graduationproject.realestate.controller.ForRentOwnerController [http-nio-8888-exec-2] İstek atılan değerler: Konut Tipi: VİLLA
+2022-02-03 22:22:53,452 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 4856 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 22:22:53,455 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 22:22:53,552 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 22:22:53,553 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 22:22:55,724 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 22:22:55,898 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 158 ms. Found 8 JPA repository interfaces.
+2022-02-03 22:22:57,918 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 22:22:57,939 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 22:22:57,940 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 22:22:58,190 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 22:22:58,191 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4636 ms
+2022-02-03 22:22:58,543 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 22:22:58,692 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 22:22:58,998 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 22:22:59,196 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 22:22:59,585 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 22:22:59,622 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 22:23:01,708 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 22:23:01,723 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:23:02,500 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 22:23:03,501 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+2022-02-03 22:23:03,504 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:23:03,510 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2022-02-03 22:23:03,523 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2022-02-03 22:23:03,531 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2022-02-03 22:23:03,561 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-03 22:23:03,627 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.graduationproject.realestate.RealestateApplication.main(RealestateApplication.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:360)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 57 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:437)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:447)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:471)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:366)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:348)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:331)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:249)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:250)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:383)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:384)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:95)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 61 common frames omitted
+2022-02-03 22:25:12,674 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 10368 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 22:25:12,677 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 22:25:12,771 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 22:25:12,772 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 22:25:14,785 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 22:25:14,909 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 112 ms. Found 8 JPA repository interfaces.
+2022-02-03 22:25:17,227 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 22:25:17,246 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 22:25:17,247 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 22:25:17,560 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 22:25:17,561 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4787 ms
+2022-02-03 22:25:18,058 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 22:25:18,195 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 22:25:18,462 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 22:25:18,609 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 22:25:18,974 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 22:25:19,019 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 22:25:21,200 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 22:25:21,212 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:25:21,912 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 22:25:22,743 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!
+2022-02-03 22:25:22,747 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:25:22,753 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2022-02-03 22:25:22,763 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2022-02-03 22:25:22,769 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2022-02-03 22:25:22,792 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-03 22:25:22,840 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.graduationproject.realestate.RealestateApplication.main(RealestateApplication.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:360)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findAllCityName(java.lang.String)! No property findAllCityName found for type ForSaleOwner!
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 57 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property findAllCityName found for type ForSaleOwner!
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:437)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:366)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:348)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:331)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:249)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:250)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:383)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:384)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:92)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 61 common frames omitted
+2022-02-03 22:32:08,662 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 4652 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 22:32:08,665 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 22:32:08,772 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 22:32:08,773 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 22:32:10,424 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 22:32:10,555 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 116 ms. Found 8 JPA repository interfaces.
+2022-02-03 22:32:12,548 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 22:32:12,567 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 22:32:12,568 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 22:32:12,835 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 22:32:12,836 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4061 ms
+2022-02-03 22:32:13,272 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 22:32:13,392 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 22:32:13,671 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 22:32:13,872 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 22:32:14,315 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 22:32:14,363 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 22:32:17,094 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 22:32:17,111 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:32:17,999 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 22:32:19,719 WARN org.springframework.context.support.AbstractApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+2022-02-03 22:32:19,723 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:32:19,731 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2022-02-03 22:32:19,739 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2022-02-03 22:32:19,749 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Stopping service [Tomcat]
+2022-02-03 22:32:19,793 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-02-03 22:32:19,866 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'forSaleOwnerManager' defined in file [C:\PROJELER JAVA EN SON\realestate\target\classes\com\graduationproject\realestate\business\concretes\ForSaleOwnerManager.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:800)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:434)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:338)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1332)
+	at com.graduationproject.realestate.RealestateApplication.main(RealestateApplication.java:18)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'forSaleOwnerRepository' defined in com.graduationproject.realestate.repository.ForSaleOwnerRepository defined in @EnableJpaRepositories declared on RealestateApplication: Invocation of init method failed; nested exception is org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1380)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1300)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	... 24 common frames omitted
+Caused by: org.springframework.data.repository.query.QueryCreationException: Could not create query for public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! Reason: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.; nested exception is java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.repository.query.QueryCreationException.create(QueryCreationException.java:101)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:106)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$mapMethodsToQuery$1(QueryExecutorMethodInterceptor.java:94)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.forEachRemaining(Collections.java:1061)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.mapMethodsToQuery(QueryExecutorMethodInterceptor.java:96)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lambda$new$0(QueryExecutorMethodInterceptor.java:86)
+	at java.base/java.util.Optional.map(Optional.java:260)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.<init>(QueryExecutorMethodInterceptor.java:86)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:360)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:323)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:230)
+	at org.springframework.data.util.Lazy.get(Lazy.java:114)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:329)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:144)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 35 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Failed to create query for method public abstract java.util.List com.graduationproject.realestate.repository.ForSaleOwnerRepository.findByCityName(java.lang.String)! No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:96)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:113)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:254)
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:87)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.lookupQuery(QueryExecutorMethodInterceptor.java:102)
+	... 57 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property name found for type City! Traversed path: ForSaleOwner.city.
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:90)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:437)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:447)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:471)
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:413)
+	at org.springframework.data.mapping.PropertyPath.lambda$from$0(PropertyPath.java:366)
+	at java.base/java.util.concurrent.ConcurrentMap.computeIfAbsent(ConcurrentMap.java:330)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:348)
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:331)
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:81)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.lambda$new$0(PartTree.java:249)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:250)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.lambda$new$0(PartTree.java:383)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:384)
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:95)
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:89)
+	... 61 common frames omitted
+2022-02-03 22:34:25,459 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 13116 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 22:34:25,461 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 22:34:25,562 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 22:34:25,563 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 22:34:27,271 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 22:34:27,430 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 145 ms. Found 8 JPA repository interfaces.
+2022-02-03 22:34:29,551 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 22:34:29,572 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 22:34:29,573 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 22:34:29,890 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 22:34:29,891 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4326 ms
+2022-02-03 22:34:30,268 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 22:34:30,410 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 22:34:30,734 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 22:34:30,927 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 22:34:31,334 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 22:34:31,376 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 22:34:33,592 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 22:34:33,610 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:34:34,394 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 22:34:36,228 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e0a81e6, org.springframework.security.web.context.SecurityContextPersistenceFilter@24eb9645, org.springframework.security.web.header.HeaderWriterFilter@2060bd93, org.springframework.web.filter.CorsFilter@40be8420, org.springframework.security.web.authentication.logout.LogoutFilter@2bf5bdba, com.graduationproject.realestate.security.JwtAuthenticationFilter@76f4567f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62d71412, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6019099c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a0680d7, org.springframework.security.web.session.SessionManagementFilter@d540c9a, org.springframework.security.web.access.ExceptionTranslationFilter@562c093f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@79ad53a1]
+2022-02-03 22:34:36,269 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-03 22:34:36,528 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-02-03 22:34:37,035 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-03 22:34:37,037 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-02-03 22:34:37,080 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-02-03 22:34:37,175 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-02-03 22:34:37,557 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_1
+2022-02-03 22:34:37,559 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteRentUsingDELETE_1
+2022-02-03 22:34:37,563 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_1
+2022-02-03 22:34:37,566 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_1
+2022-02-03 22:34:37,569 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_1
+2022-02-03 22:34:37,572 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_1
+2022-02-03 22:34:37,582 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForRentCityWithParamUsingGET_1
+2022-02-03 22:34:37,616 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_2
+2022-02-03 22:34:37,623 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_2
+2022-02-03 22:34:37,630 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_2
+2022-02-03 22:34:37,633 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_2
+2022-02-03 22:34:37,637 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_2
+2022-02-03 22:34:37,672 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_3
+2022-02-03 22:34:37,681 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_3
+2022-02-03 22:34:37,688 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_3
+2022-02-03 22:34:37,692 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_3
+2022-02-03 22:34:37,695 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllCheapHouseByCityNameUsingGET_1
+2022-02-03 22:34:37,698 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForSaleCityWithParamUsingGET_1
+2022-02-03 22:34:37,919 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RealestateApplication in 13.488 seconds (JVM running for 14.737)
+2022-02-03 22:34:59,812 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 22:34:59,814 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-02-03 22:34:59,822 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 7 ms
+2022-02-03 22:36:15,889 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-5] getAllForSalePrice metodu başladı
+2022-02-03 22:36:15,892 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-5] İstek atılan değerler: Değer: 1000000 
+2022-02-03 22:36:26,575 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-6] getAllForSalePrice metodu başladı
+2022-02-03 22:36:26,576 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-6] İstek atılan değerler: Değer: 10000000000 
+2022-02-03 22:38:39,430 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 13264 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 22:38:39,432 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 22:38:39,525 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 22:38:39,526 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 22:38:41,186 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 22:38:41,352 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 153 ms. Found 8 JPA repository interfaces.
+2022-02-03 22:38:43,331 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 22:38:43,357 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 22:38:43,358 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 22:38:43,612 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 22:38:43,613 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4086 ms
+2022-02-03 22:38:43,988 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 22:38:44,127 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 22:38:44,415 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 22:38:44,570 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 22:38:44,933 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 22:38:44,977 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 22:38:47,071 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 22:38:47,084 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 22:38:47,876 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 22:38:49,652 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4a0680d7, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f4ae1bd, org.springframework.security.web.header.HeaderWriterFilter@30066df5, org.springframework.web.filter.CorsFilter@3d7d7857, org.springframework.security.web.authentication.logout.LogoutFilter@3501f28f, com.graduationproject.realestate.security.JwtAuthenticationFilter@17097b5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18471607, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ec96a88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7cffc321, org.springframework.security.web.session.SessionManagementFilter@70fbcab, org.springframework.security.web.access.ExceptionTranslationFilter@3e174bd6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3a1b28a0]
+2022-02-03 22:38:49,700 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-03 22:38:49,958 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-02-03 22:38:50,475 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-03 22:38:50,477 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-02-03 22:38:50,511 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-02-03 22:38:50,606 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-02-03 22:38:50,979 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_1
+2022-02-03 22:38:50,989 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteRentUsingDELETE_1
+2022-02-03 22:38:50,994 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_1
+2022-02-03 22:38:50,996 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_1
+2022-02-03 22:38:50,999 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_1
+2022-02-03 22:38:51,002 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_1
+2022-02-03 22:38:51,013 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForRentCityWithParamUsingGET_1
+2022-02-03 22:38:51,042 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_2
+2022-02-03 22:38:51,048 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_2
+2022-02-03 22:38:51,053 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_2
+2022-02-03 22:38:51,056 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_2
+2022-02-03 22:38:51,059 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_2
+2022-02-03 22:38:51,094 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_3
+2022-02-03 22:38:51,103 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_3
+2022-02-03 22:38:51,110 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_3
+2022-02-03 22:38:51,113 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_3
+2022-02-03 22:38:51,117 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllCheapHouseByCityNameUsingGET_1
+2022-02-03 22:38:51,121 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForSaleCityWithParamUsingGET_1
+2022-02-03 22:38:51,361 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RealestateApplication in 12.947 seconds (JVM running for 14.205)
+2022-02-03 22:39:16,860 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 22:39:16,862 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-02-03 22:39:16,867 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 3 ms
+2022-02-03 22:39:17,542 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-2] getAllForSalePrice metodu başladı
+2022-02-03 22:39:17,546 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-2] İstek atılan değerler: Değer: 1000000 
+2022-02-03 22:39:25,504 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-3] getAllForSalePrice metodu başladı
+2022-02-03 22:39:25,505 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-3] İstek atılan değerler: Değer: 100000000 
+2022-02-03 23:22:45,120 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 16820 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 23:22:45,122 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 23:22:45,249 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 23:22:45,250 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 23:22:47,731 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 23:22:47,890 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 145 ms. Found 8 JPA repository interfaces.
+2022-02-03 23:22:50,012 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 23:22:50,040 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 23:22:50,041 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 23:22:50,321 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 23:22:50,322 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 5069 ms
+2022-02-03 23:22:50,695 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 23:22:50,832 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 23:22:51,156 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 23:22:51,352 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 23:22:51,760 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 23:22:51,804 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 23:22:54,172 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 23:22:54,189 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 23:22:55,072 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 23:22:56,998 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d4ddeab, org.springframework.security.web.context.SecurityContextPersistenceFilter@7e16df3e, org.springframework.security.web.header.HeaderWriterFilter@7b5c21b5, org.springframework.web.filter.CorsFilter@73b89647, org.springframework.security.web.authentication.logout.LogoutFilter@3c8c0358, com.graduationproject.realestate.security.JwtAuthenticationFilter@da37bd9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@356e9c7f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6d5ff3b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b2fdcbe, org.springframework.security.web.session.SessionManagementFilter@360e2632, org.springframework.security.web.access.ExceptionTranslationFilter@7a492a81, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@220d7f6]
+2022-02-03 23:22:57,047 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-03 23:22:57,301 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-02-03 23:22:58,005 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-03 23:22:58,007 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-02-03 23:22:58,056 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-02-03 23:22:58,156 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-02-03 23:22:58,614 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_1
+2022-02-03 23:22:58,617 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteRentUsingDELETE_1
+2022-02-03 23:22:58,624 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_1
+2022-02-03 23:22:58,628 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_1
+2022-02-03 23:22:58,631 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_1
+2022-02-03 23:22:58,636 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_1
+2022-02-03 23:22:58,649 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForRentCityWithParamUsingGET_1
+2022-02-03 23:22:58,682 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_2
+2022-02-03 23:22:58,688 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_2
+2022-02-03 23:22:58,695 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_2
+2022-02-03 23:22:58,697 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_2
+2022-02-03 23:22:58,702 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_2
+2022-02-03 23:22:58,734 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_3
+2022-02-03 23:22:58,745 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_3
+2022-02-03 23:22:58,786 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_3
+2022-02-03 23:22:58,788 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_3
+2022-02-03 23:22:58,790 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllCheapHouseByCityNameUsingGET_1
+2022-02-03 23:22:58,792 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForSaleCityWithParamUsingGET_1
+2022-02-03 23:22:58,993 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RealestateApplication in 15.051 seconds (JVM running for 16.424)
+2022-02-03 23:23:20,540 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 23:23:20,541 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
+2022-02-03 23:23:20,543 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 2 ms
+2022-02-03 23:25:44,529 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-5] Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'price' for method parameter type Long is not present]
+2022-02-03 23:25:52,033 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-7] findByCityNameAndPrice metodu başladı
+2022-02-03 23:25:52,034 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-7] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:26:05,883 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-8] findByCityNameAndPrice metodu başladı
+2022-02-03 23:26:05,885 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-8] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:26:15,405 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-9] findByCityNameAndPrice metodu başladı
+2022-02-03 23:26:15,407 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-9] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:26:23,663 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-10] findByCityNameAndPrice metodu başladı
+2022-02-03 23:26:23,665 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-10] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:26:39,033 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-1] findByCityNameAndPrice metodu başladı
+2022-02-03 23:26:39,035 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-1] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:26:53,335 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-2] findByCityNameAndPrice metodu başladı
+2022-02-03 23:26:53,337 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-2] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:27:01,412 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-3] findByCityNameAndPrice metodu başladı
+2022-02-03 23:27:01,414 INFO com.graduationproject.realestate.controller.ForSaleOwnerController [http-nio-8888-exec-3] İstek atılan değerler: Şehir ismi: Ankara , Değeri: 999999999
+2022-02-03 23:44:03,277 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 292 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
+2022-02-03 23:44:03,280 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
+2022-02-03 23:44:03,382 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 23:44:03,383 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 23:44:05,009 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 23:44:05,159 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 133 ms. Found 8 JPA repository interfaces.
+2022-02-03 23:44:07,082 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8888 (http)
+2022-02-03 23:44:07,105 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-02-03 23:44:07,106 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.54]
+2022-02-03 23:44:07,406 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-02-03 23:44:07,407 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 4022 ms
+2022-02-03 23:44:07,767 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 23:44:07,896 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.4.32.Final
+2022-02-03 23:44:08,193 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 23:44:08,383 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-02-03 23:44:08,753 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-02-03 23:44:08,789 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2022-02-03 23:44:10,885 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 23:44:10,900 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 23:44:11,710 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 23:44:13,352 INFO org.springframework.security.web.DefaultSecurityFilterChain [restartedMain] Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7351d4f4, org.springframework.security.web.context.SecurityContextPersistenceFilter@21d90d80, org.springframework.security.web.header.HeaderWriterFilter@4f4ae1bd, org.springframework.web.filter.CorsFilter@3a478c4b, org.springframework.security.web.authentication.logout.LogoutFilter@12407fca, com.graduationproject.realestate.security.JwtAuthenticationFilter@36dcd63d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@68c337e2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a4559c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b0a3713, org.springframework.security.web.session.SessionManagementFilter@3c8c0358, org.springframework.security.web.access.ExceptionTranslationFilter@70fbcab, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@122021f4]
+2022-02-03 23:44:13,397 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-02-03 23:44:13,642 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-02-03 23:44:14,127 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8888 (http) with context path ''
+2022-02-03 23:44:14,129 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-02-03 23:44:14,170 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-02-03 23:44:14,262 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-02-03 23:44:14,612 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_1
+2022-02-03 23:44:14,615 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: deleteRentUsingDELETE_1
+2022-02-03 23:44:14,617 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_1
+2022-02-03 23:44:14,628 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_1
+2022-02-03 23:44:14,631 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_1
+2022-02-03 23:44:14,635 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_1
+2022-02-03 23:44:14,644 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForRentCityWithParamUsingGET_1
+2022-02-03 23:44:14,704 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_2
+2022-02-03 23:44:14,711 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_2
+2022-02-03 23:44:14,723 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_2
+2022-02-03 23:44:14,728 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_2
+2022-02-03 23:44:14,733 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByPriceUsingGET_2
+2022-02-03 23:44:14,764 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: bigFilterUsingGET_3
+2022-02-03 23:44:14,772 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: findByCityNameAndDistrictAndPriceUsingGET_3
+2022-02-03 23:44:14,778 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByImmovableTypesUsingGET_3
+2022-02-03 23:44:14,781 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllByListingDateUsingGET_3
+2022-02-03 23:44:14,783 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllCheapHouseByCityNameUsingGET_1
+2022-02-03 23:44:14,786 INFO springfox.documentation.spring.web.readers.operation.CachingOperationNameGenerator [restartedMain] Generating unique operation named: getAllForSaleCityWithParamUsingGET_1
+2022-02-03 23:44:14,950 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started RealestateApplication in 12.689 seconds (JVM running for 14.051)
+2022-02-03 23:44:32,141 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-02-03 23:44:32,142 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-02-03 23:44:32,145 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-1] Completed initialization in 2 ms
+2022-02-03 23:46:14,692 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-5] getAllByImmovableTypes metodu başladı
+2022-02-03 23:46:14,693 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-5] İstek atılan değerler: Konut Tipi: EV
+2022-02-03 23:46:40,941 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-6] getAllByImmovableTypes metodu başladı
+2022-02-03 23:46:40,943 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-6] İstek atılan değerler: Konut Tipi: EV
+2022-02-03 23:46:50,114 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-7] getAllByImmovableTypes metodu başladı
+2022-02-03 23:46:50,115 INFO com.graduationproject.realestate.controller.ForSaleEstateAgentController [http-nio-8888-exec-7] İstek atılan değerler: Konut Tipi: EV
