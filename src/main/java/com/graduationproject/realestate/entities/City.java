@@ -42,13 +42,6 @@ public class City {
     private List<EstateAgent> estateAgents;
 
 
-    public static City from (CityRequest cityRequest){
-        return City.builder()
-                .district(cityRequest.getDistrict())
-                .cityName(cityRequest.getCityName())
-                .build();
-    }
-
     public City(String cityName, String district) {
         this.cityName = cityName;
         this.district = district;
@@ -59,5 +52,9 @@ public class City {
         this.cityName = cityName;
         this.district = district;
 
+    }
+
+    public City(String cityName) {
+        this.cityName = cityName;
     }
 }

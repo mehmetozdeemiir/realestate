@@ -48,4 +48,20 @@ public class EstateAgent {
         this.contactNumber = contactNumber;
         this.city = city;
     }
+    public EstateAgent(Long id,String companyName, String contactNumber, City city) {
+        this.id=id;
+        this.companyName = companyName;
+        this.contactNumber = contactNumber;
+        this.city = city;
+    }
+
+    public EstateAgent(String companyName, String contactNumber) {
+        this.companyName = companyName;
+        this.contactNumber = contactNumber;
+    }
+    public EstateAgent(Long id,String companyName, String contactNumber) {
+        this.id = id;
+        this.companyName = companyName;
+        this.contactNumber = contactNumber;
+    }
 }

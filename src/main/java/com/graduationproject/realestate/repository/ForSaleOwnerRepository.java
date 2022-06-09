@@ -1,7 +1,7 @@
 package com.graduationproject.realestate.repository;
 
 import com.graduationproject.realestate.entities.ForSaleOwner;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,7 +26,7 @@ public interface ForSaleOwnerRepository extends JpaRepository<ForSaleOwner,Long>
 
     List<ForSaleOwner> findAllByListingDateLessThanEqual(LocalDate listingDate, Pageable pageable);
 
-    List<ForSaleOwner> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes,Pageable pageable);
+    List<ForSaleOwner> findAllByProductType(ProductType productType, Pageable pageable);
 
     List<ForSaleOwner> findAllByPriceLessThanEqualAndCity_CityName(Long price, String cityName , Pageable pageable);
 

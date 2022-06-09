@@ -1,10 +1,9 @@
 package com.graduationproject.realestate.controller;
 
 import com.graduationproject.realestate.business.abstracts.ForRentEstateAgentService;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.request.ForRentEstateAgentRequest;
 import com.graduationproject.realestate.response.ForRentEstateAgentResponse;
-import com.graduationproject.realestate.response.ListByCityResponseE;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Pageable;
@@ -17,83 +16,73 @@ import java.util.Optional;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/for-rent-estate-agents")
 @RequiredArgsConstructor
 public class ForRentEstateAgentController {
     private final ForRentEstateAgentService forRentEstateAgentService;
 
-    @PostMapping("/for-rent-estate-agents")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ForRentEstateAgentResponse addEstateAgentRent(@Valid @RequestBody ForRentEstateAgentRequest forRentEstateAgentRequest){
-        log.info("addEstateAgentRent metodu başladı");
-        log.info("Emlakçı kiralık konut ekledi:{} ",forRentEstateAgentRequest);
+        log.info("addEstateAgentRent method started");
+        log.info("added:{} ",forRentEstateAgentRequest);
         return forRentEstateAgentService.addEstateAgentRent(forRentEstateAgentRequest);
     }
 
-    @PutMapping("/for-rent-estate-agents/{id}")
+    @PutMapping("/{id}")
     public ForRentEstateAgentResponse updateEstateAgentRent(@PathVariable Long id, @Valid @RequestBody ForRentEstateAgentRequest forRentEstateAgentRequest){
-        log.info("updateEstateAgentRent metodu başladı");
-        log.info("Emlakçı kiralık konut güncelledi:{} {} ",id,forRentEstateAgentRequest);
+        log.info("updateEstateAgentRent method started");
+        log.info("updated:{} {} ",id,forRentEstateAgentRequest);
         return forRentEstateAgentService.updateEstateAgentRent(id,forRentEstateAgentRequest);
     }
 
-    @GetMapping("/for-rent-estate-agents")
+    @GetMapping
     public List<ForRentEstateAgentResponse> getAllForRentEstateAgentWithParam(@RequestParam Optional<Long> estateAgentId){
-        log.info("getAllForRentEstateAgentWithParam metodu başladı");
+        log.info("getAllForRentEstateAgentWithParam method started");
         return forRentEstateAgentService.getAllForRentEstateAgentWithParam(estateAgentId);
     }
 
-    @GetMapping("/for-rent-estate-agent-cityId")
-    public List<ListByCityResponseE> getAllForRentCityWithParam(@RequestParam Optional<Long> cityId){
-        log.info("getAllForRentCityWithParam metodu başladı");
-        return forRentEstateAgentService.getAllForRentCityWithParam(cityId);
+    @DeleteMapping("/{id}")
+    public void deleteRent(@PathVariable Long id){
+        log.info("deleteRent method started");
+        forRentEstateAgentService.deleteRent(id);
+        log.info("deleted: {} ",id);
     }
 
-   /* @GetMapping("/for-rent-estate-agent-city-name")
-    public List<ForRentEstateAgentResponse> getAllByCityName(@RequestParam Optional<String> cityName){
-        log.info("getAllByCityName metodu başladı");
-        return forRentEstateAgentService.getAllByCityName(cityName);
-    } */
-
-    @GetMapping("/for-rent-estate-agent-price/{no}/{size}")
-    public List<ForRentEstateAgentResponse> getAllByPrice(@RequestParam Long price,@PathVariable int no, @PathVariable int size ){
-        log.info("getAllByPrice metodu başladı");
-        log.info("İstek atılan değerler: Fiyat: {}",price);
+    @GetMapping("/price/{no}/{size}")
+    public List<ForRentEstateAgentResponse> getAllByPrice(@RequestParam Long price, @PathVariable int no, @PathVariable int size ){
+        log.info("getAllByPrice method started");
+        log.info("Requested values: price: {}",price);
         return forRentEstateAgentService.getAllByPrice(price,no,size);
     }
 
-    @GetMapping("/for-rent-estate-agent-immovables-types")
-    public List<ForRentEstateAgentResponse> getAllByImmovableTypes(@RequestParam ImmovablesTypes immovablesTypes, Pageable pageable){
-        log.info("getAllByImmovableTypes metodu başladı");
-        log.info("İstek atılan değerler: Konut Tipi: {} ",immovablesTypes);
-        return forRentEstateAgentService.findAllByImmovablesTypes(immovablesTypes,pageable);
+    @GetMapping("/product-types")
+    public List<ForRentEstateAgentResponse> getAllByProductType(@RequestParam ProductType productType, Pageable pageable){
+        log.info("getAllByImmovableTypes method started");
+        log.info("Requested values: Product Type: {} ", productType);
+        return forRentEstateAgentService.findAllByProductType(productType,pageable);
     }
 
-    @GetMapping("/for-rent-estate-agent-listing-date")
+    @GetMapping("/listing-date")
     public List<ForRentEstateAgentResponse> getAllByListingDate(@RequestParam LocalDate listingDate, Pageable pageable) {
-        log.info("getAllByListingDate metodu başladı");
-        log.info("İstek atılan değerler: Listelenme Tarihi: {}",listingDate);
+        log.info("getAllByListingDate method started");
+        log.info("Requested values: Listing date: {}",listingDate);
         return forRentEstateAgentService.getAllByListingDate(listingDate,pageable);
     }
 
-    @GetMapping("/for-rent-estate-agent-city-district-price")
+    @GetMapping("/city-district-price")
     public List<ForRentEstateAgentResponse> findByCityNameAndDistrictAndPrice(@RequestParam Long price,@RequestParam String cityName, @RequestParam String district,  Pageable pageable){
-        log.info("findByCityNameAndDistrictAndPrice metodu başladı");
-        log.info("İstek atılan değerler: Şehir ismi: {} , İlçe İsmi: {}, Fiyat: {}",price,cityName,district);
+        log.info("findByCityNameAndDistrictAndPrice method started");
+        log.info("Requested values: City Name: {} , District Name: {}, Price: {}",price,cityName,district);
         return forRentEstateAgentService.findByCityNameAndDistrictAndPrice(price,cityName,district,pageable);
     }
 
-    @GetMapping("/for-rent-estate-agent-big-filter")
+    @GetMapping("/big-filter")
     public List<ForRentEstateAgentResponse> bigFilter(@RequestParam Long price, @RequestParam int buildingAge, @RequestParam Boolean balcony, @RequestParam Boolean furnished, @RequestParam String cityName, @RequestParam String district, Pageable pageable) {
-        log.info("bigFilter metodu başladı");
-        log.info("İstek atılan değerler: Fiyat:{}, Bina Yaşı : {}, Balkon: {},Eşya: {},Şehir ismi: {} , İlçe İsmi: {}", price, buildingAge, balcony, furnished, cityName, district);
+        log.info("bigFilter method started");
+        log.info("Requested values: Price:{}, Building Age : {}, Balcony: {},Furnished: {},City Name: {} ,District Name: {}", price, buildingAge, balcony, furnished, cityName, district);
         return forRentEstateAgentService.bigFilter(price, buildingAge, balcony, furnished, cityName, district,pageable);
     }
 
-    @DeleteMapping("/for-rent-estate-agents/{id}")
-    public void deleteRent(@PathVariable Long id){
-        log.info("deleteRent metodu başladı");
-        forRentEstateAgentService.deleteRent(id);
-        log.info("Emlakçı kiralık konut kaldırdı: {} ",id);
-    }
+
 }

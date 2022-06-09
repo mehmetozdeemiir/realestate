@@ -1,7 +1,7 @@
 package com.graduationproject.realestate.controller;
 
 import com.graduationproject.realestate.business.abstracts.ForSaleOwnerService;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.request.BigFilterRequest;
 import com.graduationproject.realestate.request.ForSaleOwnerRequest;
 import com.graduationproject.realestate.response.ForSaleOwnerResponse;
@@ -16,86 +16,86 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/for-sale-owners")
 @RequiredArgsConstructor
 public class ForSaleOwnerController {
 
     private final ForSaleOwnerService forSaleOwnerService;
 
-    @PostMapping("/for-sale-owners")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ForSaleOwnerResponse addOwnerSale(@Valid @RequestBody ForSaleOwnerRequest forSaleOwnerRequest){
         log.info("addOwnerSale metodu başladı");
-        log.info("Sahibinden kişisi satılık ev ekledi: {} ",forSaleOwnerRequest);
+        log.info("Sahibinden kişisi satılık ev added: {} ",forSaleOwnerRequest);
         return forSaleOwnerService.addOwnerSale(forSaleOwnerRequest);
     }
 
-    @PutMapping("/for-sale-owners/{id}")
+    @PutMapping("/{id}")
     public ForSaleOwnerResponse updateOwnerSale(@PathVariable Long id,@Valid @RequestBody ForSaleOwnerRequest forSaleOwnerRequest){
-        log.info("updateOwnerSale metodu başladı");
-        log.info("Sahibinden kişisi satılık ev güncelledi: {} {}",id,forSaleOwnerRequest);
+        log.info("updateOwnerSale method started");
+        log.info("updated: {} {}",id,forSaleOwnerRequest);
         return forSaleOwnerService.updateOwnerSale(id,forSaleOwnerRequest);
     }
 
-    @GetMapping("/for-sale-owner-300under")
+    @GetMapping("/300-thousand-under")
     public List<ForSaleOwnerResponse> getAllUnder300Thousand(Pageable pageable){
-        log.info("getAllUnder300Thousand metodu başladı");
+        log.info("getAllUnder300Thousand method started");
         return forSaleOwnerService.under300thousand(pageable);
     }
 
-    @GetMapping("/for-sale-owner-price")
+    @GetMapping("/price")
     public List<ForSaleOwnerResponse> findAllByPrice(@RequestParam Long price,Pageable pageable) {
-        log.info("getAllForSalePrice metodu başladı");
-        log.info("İstek atılan değerler: Değer: {} ",price);
+        log.info("getAllForSalePrice method started");
+        log.info("Requested values: Price: {} ",price);
         return forSaleOwnerService.findAllByPrice(price,pageable);
     }
 
-    @GetMapping("/for-sale-owner-city-name")
+    @GetMapping("/city-name")
     public List<ForSaleOwnerResponse> findByCityName(@RequestParam String cityName, Pageable pageable){
-        log.info("findByCityName metodu başladı");
-        log.info("İstek atılan değerler: Şehir İsmi: {} ",cityName);
+        log.info("findByCityName method started");
+        log.info("Requested values: City Name: {} ",cityName);
         return forSaleOwnerService.findByCityName(cityName,pageable);
     }
 
-    @GetMapping("/for-sale-owner-cheap-house")
+    @GetMapping("/cheap-house")
     public List<ForSaleOwnerResponse> getAllCheapHouseByCityName(@RequestParam String cityName){
-        log.info("getAllCheapHouseByCityName metodu başladı");
-        log.info("İstek atılan değerler: Şehir İsmi: {} ",cityName);
+        log.info("getAllCheapHouseByCityName method started");
+        log.info("Requested values: City Name: {} ",cityName);
         return forSaleOwnerService.getAllCheapHouseByCityName(cityName);
     }
 
-    @GetMapping("/for-sale-owner-immovables-types")
-    public List<ForSaleOwnerResponse> getAllByImmovableTypes(@RequestParam ImmovablesTypes immovablesTypes,Pageable pageable){
-        log.info("getAllByImmovableTypes metodu başladı");
-        log.info("İstek atılan değerler: Konut Tipi: {} ",immovablesTypes);
-        return forSaleOwnerService.findAllByImmovablesTypes(immovablesTypes,pageable);
+    @GetMapping("/immovables-types")
+    public List<ForSaleOwnerResponse> getAllByProductType(@RequestParam ProductType productType, Pageable pageable){
+        log.info("getAllByImmovableTypes method started");
+        log.info("Requested values: Product Type {} ", productType);
+        return forSaleOwnerService.findAllByProductType(productType,pageable);
     }
 
-    @GetMapping("/for-sale-owner-listing-date")
+    @GetMapping("/listing-date")
     public List<ForSaleOwnerResponse> getAllByListingDate(@RequestParam LocalDate listingDate,Pageable pageable) {
-        log.info("getAllByListingDate metodu başladı");
-        log.info("İstek atılan değerler: Listelenme Tarihi: {} ",listingDate);
+        log.info("getAllByListingDate method started");
+        log.info("Requested values: Listing Date: {} ",listingDate);
         return forSaleOwnerService.getAllByListingDate(listingDate,pageable);
     }
 
-    @GetMapping("/for-sale-owner-city-price")
+    @GetMapping("/city-price")
     public List<ForSaleOwnerResponse> findByCityNameAndPrice(@RequestParam Long price,@RequestParam String cityName,  Pageable pageable){
-        log.info("findByCityNameAndPrice metodu başladı");
-        log.info("İstek atılan değerler: Şehir ismi: {} , Değeri: {}",cityName,price);
+        log.info("findByCityNameAndPrice method started");
+        log.info("Requested values: City Name: {} , Price: {}",cityName,price);
         return forSaleOwnerService.findByCityNameAndPrice(price,cityName,pageable);
     }
 
-    @GetMapping("/for-sale-owner-city-district-price")
+    @GetMapping("/city-district-price")
     public List<ForSaleOwnerResponse> findByCityNameAndDistrictAndPrice(@RequestParam String cityName, @RequestParam String district, @RequestParam Long price,Pageable pageable){
-        log.info("findByCityNameAndDistrictAndPrice metodu başladı");
-        log.info("İstek atılan değerler: Şehir ismi: {} , İlçe İsmi: {}, Değeri: {}",cityName,district,price);
+        log.info("findByCityNameAndDistrictAndPrice method started");
+        log.info("Requested values: City Name: {} , District Name: {}, Price: {}",cityName,district,price);
         return forSaleOwnerService.findByCityNameAndDistrictAndPrice(price,cityName,district,pageable);
     }
 
-    @GetMapping("/for-sale-owner-big-filter")
+    @GetMapping("/big-filter")
     public List<ForSaleOwnerResponse> bigFilter(@RequestParam Long price,@RequestParam int buildingAge,@RequestParam Boolean balcony,@RequestParam Boolean furnished,@RequestParam String cityName,@RequestParam String district,Pageable pageable){
-        log.info("bigFilter metodu başladı");
-        log.info("İstek atılan değerler:Değer:{}, Bina Yaşı : {}, Balkon: {},Eşya: {},Şehir ismi: {} , İlçe İsmi: {}",price,buildingAge,balcony,furnished,cityName,district);
+        log.info("bigFilter method started");
+        log.info("Requested values: Price:{}, Building Age : {}, Balcony: {},Furnished: {},City Name: {} , District Name: {}",price,buildingAge,balcony,furnished,cityName,district);
         BigFilterRequest request = BigFilterRequest.builder()
                 .price(price)
                 .buildingAge(buildingAge)
@@ -108,10 +108,10 @@ public class ForSaleOwnerController {
         //localhost:8888/api/for-sale-owner-big-filter?price=291000&buildingAge=5&balcony=true&furnished=false&cityName=Ankara&district=Bahçelievler
     }
 
-    @DeleteMapping("/for-sale-owners/{id}")
+    @DeleteMapping("/{id}")
     public void deleteSale(@PathVariable Long id){
-        log.info("deleteSale metodu başladı");
+        log.info("deleteSale method started");
         forSaleOwnerService.deleteSaleOwner(id);
-        log.info("Sahibinden kişisi satılık konut kaldırdı: {} ",id);
+        log.info("deleted: {} ",id);
     }
 }

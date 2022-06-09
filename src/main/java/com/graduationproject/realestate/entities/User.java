@@ -39,10 +39,4 @@ public class User {
         this.password = password;
     }
 
-    public static User from(UserRequest userRequest){
-        return User.builder()
-                .userName(userRequest.getUserName())
-                .password(userRequest.getPassword())
-                .build();
-    }
 }

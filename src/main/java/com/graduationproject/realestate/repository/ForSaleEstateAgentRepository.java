@@ -1,7 +1,7 @@
 package com.graduationproject.realestate.repository;
 
 import com.graduationproject.realestate.entities.ForSaleEstateAgent;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -23,7 +23,7 @@ public interface ForSaleEstateAgentRepository extends JpaRepository<ForSaleEstat
 
     List<ForSaleEstateAgent> findAllByListingDateLessThanEqual(LocalDate listingDate,Pageable pageable);
 
-    List<ForSaleEstateAgent> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes, Pageable pageable);
+    List<ForSaleEstateAgent> findAllByProductType(ProductType productType, Pageable pageable);
 
     List<ForSaleEstateAgent> findAllByPriceLessThanEqualAndCity_CityNameAndCity_District(Long price, String cityName, String district,Pageable pageable);
 

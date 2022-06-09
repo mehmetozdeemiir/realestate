@@ -1,30 +1,31 @@
 package com.graduationproject.realestate.request;
 
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import lombok.Data;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
 public class ForSaleEstateAgentRequest {
-    @NotNull(message = "Oluşturulma tarihi alanı boş bırakılamaz")
+    @NotEmpty(message = "this field is required")
     private LocalDate listingDate;
 
-    @NotNull(message = "İlan başlığı boş bırakılamaz")
+    @NotEmpty(message = "this field is required")
     private String advertTitle;
 
-    @NotNull(message = "Fiyat alanı boş bırakılamaz")
+    @NotEmpty(message = "this field is required")
     private Long price;
 
     @Enumerated(EnumType.STRING)//?? enumerated olmadan calısıyor mu
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
 
-    @NotNull(message = "Oda sayısı alanı boş bırakılmaz")
+    @NotEmpty(message = "this field is required")
     private String numberOfRooms;
 
-    @NotNull(message = "Bina Yaşı alanı boş bırakılmaz")
+    @NotEmpty(message = "this field is required")
     private int buildingAge;
 
     private Boolean balcony;

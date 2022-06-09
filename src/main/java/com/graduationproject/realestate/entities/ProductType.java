@@ -1,6 +1,6 @@
 package com.graduationproject.realestate.entities;
 
-public enum ImmovablesTypes{
+public enum ProductType {
     EV,
     DÜKKAN,
     ARSA,

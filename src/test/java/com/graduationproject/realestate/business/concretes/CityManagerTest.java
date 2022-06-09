@@ -7,7 +7,6 @@ import com.graduationproject.realestate.repository.CityRepository;
 import com.graduationproject.realestate.request.CityRequest;
 import com.graduationproject.realestate.response.CityResponseConverter;
 import com.graduationproject.realestate.response.CityResponse;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,13 +34,20 @@ public class CityManagerTest extends TestSupport {
 
     @Test
     public void testCreateCity_itShouldReturnCityResponse() {
-        CityRequest request= new CityRequest("cityName","district");
-        City city=new City("cityName","district");
+
+        //given
+
+        CityRequest request= cityRequestSupport;
+        City city=entitySupport;
         City savedCity = new City(1L,"cityName","district");
-        CityResponse cityResponse= new CityResponse("cityName","district");
+        CityResponse cityResponse= cityResponseSupport;
+
+        //when
 
         when(cityRepository.save(city)).thenReturn(savedCity);
         when(cityResponseConverter.from(savedCity)).thenReturn(cityResponse);
+
+        //then
 
         CityResponse result= cityManager.addCity(request);
         Assertions.assertEquals(cityResponse,result);
@@ -56,19 +62,18 @@ public class CityManagerTest extends TestSupport {
         Long id=1L;
         CityRequest request= new CityRequest("cityName2","district2");
         City city=new City(1L,"cityName","district");
-        City updateCity = new City(1L,"cityName2","district2");
         City savedCity = new City(1L,"cityName2","district2");
         CityResponse cityResponse= new CityResponse("cityName2","district2");
 
         when(cityRepository.findById(id)).thenReturn(Optional.of(city));
-        when(cityRepository.save(updateCity)).thenReturn(savedCity);
+        when(cityRepository.save(city)).thenReturn(savedCity);
         when(cityResponseConverter.from(savedCity)).thenReturn(cityResponse);
 
         CityResponse result = cityManager.updateCity(id,request);
-        Assert.assertEquals(cityResponse,result);
+        Assertions.assertEquals(cityResponse,result);
 
         verify(cityRepository).findById(id);
-        verify(cityRepository).save(updateCity);
+        verify(cityRepository).save(city);
         verify(cityResponseConverter).from(savedCity);
 
 
@@ -76,6 +81,7 @@ public class CityManagerTest extends TestSupport {
 
     @Test
    public void testDeleteCity_whenCityIdExist_itShouldDeleteCity() {
+
         City city = new City(id,"cityName","district");
 
         when(cityRepository.findById(id)).thenReturn(Optional.of(city));
@@ -86,9 +92,9 @@ public class CityManagerTest extends TestSupport {
         verify(cityRepository).deleteById(id);
 
     }
+
     @Test
     public void testDeleteCity_whenCityDoesNotIdExist_itShouldDeleteCity() {
-
 
         when(cityRepository.findById(id)).thenReturn(Optional.empty());
 
@@ -97,7 +103,6 @@ public class CityManagerTest extends TestSupport {
 
         verify(cityRepository).findById(id);
         verifyNoMoreInteractions(cityRepository);
-
     }
 
     @Test
@@ -115,6 +120,5 @@ public class CityManagerTest extends TestSupport {
 
         verify(cityRepository).findAll();
         verify(cityResponseConverter).fromList(cities);
-
     }
 }

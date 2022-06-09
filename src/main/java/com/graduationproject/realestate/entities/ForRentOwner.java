@@ -1,6 +1,5 @@
 package com.graduationproject.realestate.entities;
 
-import com.graduationproject.realestate.request.ForRentOwnerRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,6 +16,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class ForRentOwner {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,7 +29,7 @@ public class ForRentOwner {
     private Long price;
 
     @Enumerated(EnumType.STRING)
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
 
     private String numberOfRooms;
 
@@ -39,11 +39,11 @@ public class ForRentOwner {
 
     private Boolean furnished;
 
-    public ForRentOwner( LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, Owner owner, City city) {
+    public ForRentOwner(LocalDate listingDate, String advertTitle, Long price, ProductType productType, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, Owner owner, City city) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
-        this.immovablesTypes = immovablesTypes;
+        this.productType = productType;
         this.numberOfRooms = numberOfRooms;
         this.buildingAge = buildingAge;
         this.balcony = balcony;
@@ -51,18 +51,7 @@ public class ForRentOwner {
         this.owner = owner;
         this.city = city;
     }
-    public static ForRentOwner from(ForRentOwnerRequest ownerRentRequest) {
-        return ForRentOwner.builder()
-                .listingDate(ownerRentRequest.getListingDate())
-                .advertTitle(ownerRentRequest.getAdvertTitle())
-                .price(ownerRentRequest.getPrice())
-                .immovablesTypes(ownerRentRequest.getImmovablesTypes())
-                .numberOfRooms(ownerRentRequest.getNumberOfRooms())
-                .buildingAge(ownerRentRequest.getBuildingAge())
-                .balcony(ownerRentRequest.getBalcony())
-                .furnished(ownerRentRequest.getFurnished())
-                .build();
-    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;

@@ -28,7 +28,7 @@ public class ForRentEstateAgent {
     private Long price;
 
     @Enumerated(EnumType.STRING)
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
 
     private String numberOfRooms;
 
@@ -38,11 +38,25 @@ public class ForRentEstateAgent {
 
     private Boolean furnished;
 
-    public ForRentEstateAgent( LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
+    public ForRentEstateAgent(LocalDate listingDate, String advertTitle, Long price, ProductType productType, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
-        this.immovablesTypes = immovablesTypes;
+        this.productType = productType;
+        this.numberOfRooms = numberOfRooms;
+        this.buildingAge = buildingAge;
+        this.balcony = balcony;
+        this.furnished = furnished;
+        this.estateAgent=estateAgent;
+        this.city = city;
+    }
+
+    public ForRentEstateAgent(Long id, LocalDate listingDate, String advertTitle, Long price, ProductType productType, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
+        this.id=id;
+        this.listingDate = listingDate;
+        this.advertTitle = advertTitle;
+        this.price = price;
+        this.productType = productType;
         this.numberOfRooms = numberOfRooms;
         this.buildingAge = buildingAge;
         this.balcony = balcony;
@@ -55,7 +69,7 @@ public class ForRentEstateAgent {
                 .listingDate(estateAgentRentRequest.getListingDate())
                 .advertTitle(estateAgentRentRequest.getAdvertTitle())
                 .price(estateAgentRentRequest.getPrice())
-                .immovablesTypes(estateAgentRentRequest.getImmovablesTypes())
+                .productType(estateAgentRentRequest.getProductType())
                 .numberOfRooms(estateAgentRentRequest.getNumberOfRooms())
                 .buildingAge(estateAgentRentRequest.getBuildingAge())
                 .balcony(estateAgentRentRequest.getBalcony())

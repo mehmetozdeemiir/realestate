@@ -10,38 +10,39 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Slf4j
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/owners")
 @RequiredArgsConstructor
+@Slf4j
 public class OwnerController {
     private final OwnerService ownerService;
 
-    @GetMapping("/owners")
+    @GetMapping
     public List<OwnerResponse> getAllOwners(){
-        log.info("getAllOwners metodu başladı");
+        log.info("getAllOwners method started");
         return ownerService.getAllOwner();
     }
 
-    @PostMapping("/owners")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public OwnerResponse addOwner(@Valid @RequestBody OwnerRequest ownerRequest){
-        log.info("addOwner metodu başladı");
-        log.info("Owner eklendi: ",ownerRequest);
+        log.info("addOwner method started");
+        log.info("added: {} ",ownerRequest);
         return ownerService.addOwner(ownerRequest);
     }
 
-    @PutMapping("/owners/{id}")
+    @PutMapping("/{id}")
     public OwnerResponse updateOwner(@PathVariable Long id ,@Valid @RequestBody OwnerRequest ownerRequest){
-        log.info("updateOwner metodu başladı");
-        log.info("Owner güncellendi: ",id,ownerRequest);
+        log.info("updateOwner method started");
+        log.info("updated: {},{}",id,ownerRequest);
         return ownerService.updateOwner(id, ownerRequest);
     }
 
-    @DeleteMapping("/owners/{id}")
+    @DeleteMapping("/{id}")
     public void deleteOwner(@PathVariable Long id){
-        log.info("deleteOwner metodu başladı");
-        log.info("Owner silindi: ",id);
+        log.info("deleteOwner method started");
+        log.info("deleted: {} ",id);
         ownerService.deleteOwner(id);
     }
 

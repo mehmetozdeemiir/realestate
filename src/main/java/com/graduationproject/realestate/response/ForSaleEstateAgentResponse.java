@@ -1,7 +1,7 @@
 package com.graduationproject.realestate.response;
 
 import com.graduationproject.realestate.entities.ForSaleEstateAgent;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class ForSaleEstateAgentResponse {
     private LocalDate listingDate;
     private String advertTitle;
     private Long price;
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
     private String numberOfRooms;
     private int buildingAge;
     private Boolean balcony;
@@ -32,7 +32,7 @@ public class ForSaleEstateAgentResponse {
                 .listingDate(forSale.getListingDate())
                 .advertTitle(forSale.getAdvertTitle())
                 .price(forSale.getPrice())
-                .immovablesTypes(forSale.getImmovablesTypes())
+                .productType(forSale.getProductType())
                 .numberOfRooms(forSale.getNumberOfRooms())
                 .buildingAge(forSale.getBuildingAge())
                 .balcony(forSale.getBalcony())

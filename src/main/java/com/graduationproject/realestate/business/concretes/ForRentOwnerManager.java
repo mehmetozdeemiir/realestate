@@ -3,15 +3,12 @@ package com.graduationproject.realestate.business.concretes;
 import com.graduationproject.realestate.business.abstracts.ForRentOwnerService;
 import com.graduationproject.realestate.entities.City;
 import com.graduationproject.realestate.entities.ForRentOwner;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.entities.Owner;
 import com.graduationproject.realestate.exceptions.ApiRequestException;
-import com.graduationproject.realestate.repository.CityRepository;
 import com.graduationproject.realestate.repository.ForRentOwnerRepository;
-import com.graduationproject.realestate.repository.OwnerRepository;
 import com.graduationproject.realestate.request.ForRentOwnerRequest;
 import com.graduationproject.realestate.response.ForRentOwnerResponse;
-import com.graduationproject.realestate.response.ListByCityResponseO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,20 +16,22 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 @RequiredArgsConstructor
 public class ForRentOwnerManager implements ForRentOwnerService {
+
     private final ForRentOwnerRepository forRentOwnerRepository;
-    private final OwnerRepository ownerRepository;
-    private final CityRepository cityRepository;
+    private final OwnerManager ownerManager;
+    private final CityManager cityManager;
 
     @Override
     public ForRentOwnerResponse addOwnerRent(ForRentOwnerRequest forRentOwnerRequest) {
-        Owner owner = ownerRepository.findById(forRentOwnerRequest.getOwnerId()).get();
-        City city =cityRepository.findByCityNameAndDistrict(forRentOwnerRequest.getCityName(), forRentOwnerRequest.getDistrict());
+        Owner owner = ownerManager.findById(forRentOwnerRequest.getOwnerId());
+        City city =cityManager.findByCityNameAndDistrict(forRentOwnerRequest.getCityName(), forRentOwnerRequest.getDistrict());
         ForRentOwner forRent=forRentOwnerRepository.save(new ForRentOwner(forRentOwnerRequest.getListingDate(),
                 forRentOwnerRequest.getAdvertTitle(), forRentOwnerRequest.getPrice(),
-                forRentOwnerRequest.getImmovablesTypes(), forRentOwnerRequest.getNumberOfRooms(),
+                forRentOwnerRequest.getProductType(), forRentOwnerRequest.getNumberOfRooms(),
                 forRentOwnerRequest.getBuildingAge(), forRentOwnerRequest.getBalcony(),
                 forRentOwnerRequest.getFurnished(), owner,city));
         return ForRentOwnerResponse.from(forRent);
@@ -40,11 +39,11 @@ public class ForRentOwnerManager implements ForRentOwnerService {
 
     @Override
     public ForRentOwnerResponse updateOwnerRent(Long id, ForRentOwnerRequest forRentOwnerRequest) {
-        ForRentOwner forRent =forRentOwnerRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"));
+        ForRentOwner forRent =forRentOwnerRepository.findById(id).orElseThrow(()->new ApiRequestException("Could not be updated . No data found"+id));
         forRent.setListingDate(forRentOwnerRequest.getListingDate());
         forRent.setAdvertTitle(forRentOwnerRequest.getAdvertTitle());
         forRent.setPrice(forRentOwnerRequest.getPrice());
-        forRent.setImmovablesTypes(forRentOwnerRequest.getImmovablesTypes());
+        forRent.setProductType(forRentOwnerRequest.getProductType());
         forRent.setNumberOfRooms(forRentOwnerRequest.getNumberOfRooms());
         forRent.setBuildingAge(forRentOwnerRequest.getBuildingAge());
         forRent.setBalcony(forRentOwnerRequest.getBalcony());
@@ -68,15 +67,6 @@ public class ForRentOwnerManager implements ForRentOwnerService {
                 .orElseGet(forRentOwnerRepository::findAll)
                 .stream()
                 .map(ForRentOwnerResponse::from)
-                .toList();
-    }
-
-    @Override
-    public List<ListByCityResponseO> getAllForRentCityWithParam(Optional<Long> cityId) {
-        return cityId.map(forRentOwnerRepository::findByCityId)
-                .orElseGet(forRentOwnerRepository::findAll)
-                .stream()
-                .map(ListByCityResponseO::froms)
                 .toList();
     }
 
@@ -108,9 +98,9 @@ public class ForRentOwnerManager implements ForRentOwnerService {
     }
 
     @Override
-    public List<ForRentOwnerResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes, Pageable pageable) {
+    public List<ForRentOwnerResponse> findAllByProductType(ProductType productType, Pageable pageable) {
         return forRentOwnerRepository
-                .findAllByImmovablesTypes(immovablesTypes,pageable)
+                .findAllByProductType(productType,pageable)
                 .stream()
                 .map(ForRentOwnerResponse::from)
                 .toList();

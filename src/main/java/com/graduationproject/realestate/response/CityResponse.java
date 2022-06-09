@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class CityResponse {
     private String cityName;
     private String district;

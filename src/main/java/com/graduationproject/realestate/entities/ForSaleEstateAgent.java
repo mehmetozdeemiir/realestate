@@ -1,6 +1,5 @@
 package com.graduationproject.realestate.entities;
 
-import com.graduationproject.realestate.request.ForSaleEstateAgentRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +15,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class ForSaleEstateAgent {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,7 +27,7 @@ public class ForSaleEstateAgent {
     private Long price;
 
     @Enumerated(EnumType.STRING)
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
 
     private String numberOfRooms;
 
@@ -37,30 +37,17 @@ public class ForSaleEstateAgent {
 
     private Boolean furnished;
 
-    public ForSaleEstateAgent( LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
+    public ForSaleEstateAgent(LocalDate listingDate, String advertTitle, Long price, ProductType productType, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, EstateAgent estateAgent, City city) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
-        this.immovablesTypes = immovablesTypes;
+        this.productType = productType;
         this.numberOfRooms = numberOfRooms;
         this.buildingAge = buildingAge;
         this.balcony = balcony;
         this.furnished = furnished;
         this.estateAgent=estateAgent;
         this.city = city;
-    }
-
-    public static ForSaleEstateAgent from(ForSaleEstateAgentRequest estateAgentSaleRequest) {
-        return ForSaleEstateAgent.builder()
-                .listingDate(estateAgentSaleRequest.getListingDate())
-                .advertTitle(estateAgentSaleRequest.getAdvertTitle())
-                .price(estateAgentSaleRequest.getPrice())
-                .immovablesTypes(estateAgentSaleRequest.getImmovablesTypes())
-                .numberOfRooms(estateAgentSaleRequest.getNumberOfRooms())
-                .buildingAge(estateAgentSaleRequest.getBuildingAge())
-                .balcony(estateAgentSaleRequest.getBalcony())
-                .furnished(estateAgentSaleRequest.getFurnished())
-                .build();
     }
 
     @ManyToOne(fetch = FetchType.LAZY)

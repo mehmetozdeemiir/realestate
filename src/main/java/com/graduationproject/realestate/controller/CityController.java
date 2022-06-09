@@ -9,37 +9,40 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Slf4j
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/cities")
 @RequiredArgsConstructor
+@Slf4j
 public class CityController {
+
     private final CityService cityService;
 
-    @GetMapping("/cities")
+    @GetMapping
     public List<CityResponse> getAllCity(){
+        log.info("getAllCity method started");
         return cityService.getAllCity();
     }
 
-    @PostMapping("/cities")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public CityResponse addCity(@Valid @RequestBody CityRequest cityRequest){
-        log.info("addCity metodu başladı");
-        log.info("Eklendi: {} ", cityRequest);
+        log.info("addCity method started");
+        log.info("City added: {} ", cityRequest);
         return cityService.addCity(cityRequest);
     }
 
-    @PutMapping("/cities/{id}")
+    @PutMapping("/{id}")
     public CityResponse updateCity(@Valid @PathVariable Long id, @RequestBody CityRequest cityRequest){
-        log.info("updateCity metodu başladı");
-        log.info("Güncellendi: {} {}", id,cityRequest);
+        log.info("updateCity method started");
+        log.info("City updated: {} {}", id,cityRequest);
         return cityService.updateCity(id, cityRequest);
     }
 
-    @DeleteMapping("/cities/{id}")
+    @DeleteMapping("/{id}")
     public void deleteCity(@PathVariable Long id){
-        log.info("deleteCity metodu başladı");
-        log.info("Silindi: {} ", id);
+        log.info("deleteCity method started");
+        log.info("City deleted: {} ", id);
         cityService.deleteCity(id);
     }
 }

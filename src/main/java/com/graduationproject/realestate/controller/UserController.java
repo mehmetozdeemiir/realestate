@@ -13,39 +13,39 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/users")
 @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping
     public List<User> getAll(){
         return userService.getAll();
     }
 
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public UserResponse getUserById(@PathVariable Long id){
         return userService.getUserById(id);
     }
 
-    @PostMapping("/users")
+    @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
     public UserResponse createUser(@Valid @RequestBody UserRequest userRequest){
         return userService.createUser(userRequest);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/{id}")
     public UserResponse updateUser( @PathVariable Long id,@Valid @RequestBody UserRequest userRequest) {
         return userService.updateUser(id,userRequest);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser( @PathVariable Long id){
         userService.deleteUser(id);
     }
 
-    @GetMapping("/user/slice")
+    @GetMapping("/slice")
     public List<UserResponse> slice(Pageable pageable){
         return userService.slice(pageable);
     }

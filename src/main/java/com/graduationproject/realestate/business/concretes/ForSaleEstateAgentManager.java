@@ -3,14 +3,11 @@ import com.graduationproject.realestate.business.abstracts.ForSaleEstateAgentSer
 import com.graduationproject.realestate.entities.City;
 import com.graduationproject.realestate.entities.EstateAgent;
 import com.graduationproject.realestate.entities.ForSaleEstateAgent;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.exceptions.ApiRequestException;
-import com.graduationproject.realestate.repository.CityRepository;
-import com.graduationproject.realestate.repository.EstateAgentRepository;
 import com.graduationproject.realestate.repository.ForSaleEstateAgentRepository;
 import com.graduationproject.realestate.request.ForSaleEstateAgentRequest;
 import com.graduationproject.realestate.response.ForSaleEstateAgentResponse;
-import com.graduationproject.realestate.response.ListByCityResponseE;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -23,16 +20,16 @@ import java.util.Optional;
 public class ForSaleEstateAgentManager implements ForSaleEstateAgentService {
 
     private final ForSaleEstateAgentRepository forSaleEstateAgentRepository;
-    private final CityRepository cityRepository;
-    private final EstateAgentRepository estateAgentRepository;
+    private final CityManager cityManager;
+    private final EstateAgentManager estateAgentManager;
 
     @Override
     public ForSaleEstateAgentResponse addEstateAgentSale(ForSaleEstateAgentRequest forSaleEstateAgentRequest) {
-        EstateAgent estateAgent = estateAgentRepository.findById(forSaleEstateAgentRequest.getEstateAgentId()).get();
-        City city =cityRepository.findByCityNameAndDistrict(forSaleEstateAgentRequest.getCityName(), forSaleEstateAgentRequest.getDistrict());
+        EstateAgent estateAgent = estateAgentManager.findById(forSaleEstateAgentRequest.getEstateAgentId());
+        City city =cityManager.findByCityNameAndDistrict(forSaleEstateAgentRequest.getCityName(), forSaleEstateAgentRequest.getDistrict());
         ForSaleEstateAgent forSale=forSaleEstateAgentRepository.save(new ForSaleEstateAgent( forSaleEstateAgentRequest.getListingDate(),
                 forSaleEstateAgentRequest.getAdvertTitle(), forSaleEstateAgentRequest.getPrice(),
-                forSaleEstateAgentRequest.getImmovablesTypes(), forSaleEstateAgentRequest.getNumberOfRooms(),
+                forSaleEstateAgentRequest.getProductType(), forSaleEstateAgentRequest.getNumberOfRooms(),
                 forSaleEstateAgentRequest.getBuildingAge(), forSaleEstateAgentRequest.getBalcony(),
                 forSaleEstateAgentRequest.getFurnished(),estateAgent,city));
         return ForSaleEstateAgentResponse.from(forSale);
@@ -40,11 +37,11 @@ public class ForSaleEstateAgentManager implements ForSaleEstateAgentService {
 
     @Override
     public ForSaleEstateAgentResponse updateEstateAgentSale(Long id, ForSaleEstateAgentRequest forSaleEstateAgentRequest) {
-        ForSaleEstateAgent forSale =forSaleEstateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"));
+        ForSaleEstateAgent forSale =forSaleEstateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Could not be updated . No data found"));
         forSale.setListingDate(forSaleEstateAgentRequest.getListingDate());
         forSale.setAdvertTitle(forSaleEstateAgentRequest.getAdvertTitle());
         forSale.setPrice(forSaleEstateAgentRequest.getPrice());
-        forSale.setImmovablesTypes(forSaleEstateAgentRequest.getImmovablesTypes());
+        forSale.setProductType(forSaleEstateAgentRequest.getProductType());
         forSale.setNumberOfRooms(forSaleEstateAgentRequest.getNumberOfRooms());
         forSale.setBuildingAge(forSaleEstateAgentRequest.getBuildingAge());
         forSale.setBalcony(forSaleEstateAgentRequest.getBalcony());
@@ -52,6 +49,7 @@ public class ForSaleEstateAgentManager implements ForSaleEstateAgentService {
         ForSaleEstateAgent updatedSale= forSaleEstateAgentRepository.save(forSale);
         return ForSaleEstateAgentResponse.from(updatedSale);
     }
+
     @Override
     public List<ForSaleEstateAgentResponse> getAllForSaleEstateAgentWithParam(Optional<Long> estateAgentId) {
         return estateAgentId.map(forSaleEstateAgentRepository::findByEstateAgentId)
@@ -67,14 +65,6 @@ public class ForSaleEstateAgentManager implements ForSaleEstateAgentService {
             forSales=forSaleRepository.findAll();
         return forSales.stream().map(f->new ForSaleEstateAgentResponse(f)).collect(Collectors.toList());
          */
-    }
-    @Override
-    public List<ListByCityResponseE> getAllForSaleCityWithParam(Optional<Long> cityId) {
-        return cityId.map(forSaleEstateAgentRepository::findByCityId)
-                .orElseGet(forSaleEstateAgentRepository::findAll)
-                .stream()
-                .map(ListByCityResponseE::froms)
-                .toList();
     }
 
     @Override
@@ -105,9 +95,9 @@ public class ForSaleEstateAgentManager implements ForSaleEstateAgentService {
     }
 
     @Override
-    public List<ForSaleEstateAgentResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes,Pageable pageable) {
+    public List<ForSaleEstateAgentResponse> findAllByProductType(ProductType productType, Pageable pageable) {
         return forSaleEstateAgentRepository
-                .findAllByImmovablesTypes(immovablesTypes,pageable)
+                .findAllByProductType(productType,pageable)
                 .stream()
                 .map(ForSaleEstateAgentResponse::from)
                 .toList();

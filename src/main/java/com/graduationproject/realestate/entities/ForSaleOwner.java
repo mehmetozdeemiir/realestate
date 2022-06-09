@@ -1,6 +1,5 @@
 package com.graduationproject.realestate.entities;
 
-import com.graduationproject.realestate.request.ForSaleOwnerRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,7 +26,7 @@ public class ForSaleOwner {
     private Long price;
 
     @Enumerated(EnumType.STRING)
-    private ImmovablesTypes immovablesTypes;
+    private ProductType productType;
 
     private String numberOfRooms;
 
@@ -37,11 +36,11 @@ public class ForSaleOwner {
 
     private Boolean furnished;
 
-    public ForSaleOwner(LocalDate listingDate, String advertTitle, Long price, ImmovablesTypes immovablesTypes, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, Owner owner, City city) {
+    public ForSaleOwner(LocalDate listingDate, String advertTitle, Long price, ProductType productType, String numberOfRooms, int buildingAge, Boolean balcony, Boolean furnished, Owner owner, City city) {
         this.listingDate = listingDate;
         this.advertTitle = advertTitle;
         this.price = price;
-        this.immovablesTypes = immovablesTypes;
+        this.productType = productType;
         this.numberOfRooms = numberOfRooms;
         this.buildingAge = buildingAge;
         this.balcony = balcony;
@@ -49,20 +48,6 @@ public class ForSaleOwner {
         this.owner = owner;
         this.city = city;
     }
-
-    public static ForSaleOwner from(ForSaleOwnerRequest ownerSaleRequest) {
-        return ForSaleOwner.builder()
-                .listingDate(ownerSaleRequest.getListingDate())
-                .advertTitle(ownerSaleRequest.getAdvertTitle())
-                .price(ownerSaleRequest.getPrice())
-                .immovablesTypes(ownerSaleRequest.getImmovablesTypes())
-                .numberOfRooms(ownerSaleRequest.getNumberOfRooms())
-                .buildingAge(ownerSaleRequest.getBuildingAge())
-                .balcony(ownerSaleRequest.getBalcony())
-                .furnished(ownerSaleRequest.getFurnished())
-                .build();
-    }
-
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")

@@ -3,7 +3,7 @@ package com.graduationproject.realestate.business.concretes;
 import com.graduationproject.realestate.business.abstracts.ForSaleOwnerService;
 import com.graduationproject.realestate.entities.City;
 import com.graduationproject.realestate.entities.ForSaleOwner;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.entities.Owner;
 import com.graduationproject.realestate.exceptions.ApiRequestException;
 import com.graduationproject.realestate.repository.CityRepository;
@@ -23,16 +23,16 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ForSaleOwnerManager implements ForSaleOwnerService {
     private final ForSaleOwnerRepository forSaleOwnerRepository;
-    private final OwnerRepository ownerRepository;
-    private final CityRepository cityRepository;
+    private final OwnerManager ownerManager;
+    private final CityManager cityManager;
 
     @Override
     public ForSaleOwnerResponse addOwnerSale(ForSaleOwnerRequest forSaleOwnerRequest) {
-        Owner owner = ownerRepository.findById(forSaleOwnerRequest.getOwnerId()).get();
-        City city =cityRepository.findByCityNameAndDistrict(forSaleOwnerRequest.getCityName(), forSaleOwnerRequest.getDistrict());
+        Owner owner = ownerManager.findById(forSaleOwnerRequest.getOwnerId());
+        City city =cityManager.findByCityNameAndDistrict(forSaleOwnerRequest.getCityName(), forSaleOwnerRequest.getDistrict());
         ForSaleOwner forSale=forSaleOwnerRepository.save(new ForSaleOwner( forSaleOwnerRequest.getListingDate(),
                 forSaleOwnerRequest.getAdvertTitle(), forSaleOwnerRequest.getPrice(),
-                forSaleOwnerRequest.getImmovablesTypes(), forSaleOwnerRequest.getNumberOfRooms(),
+                forSaleOwnerRequest.getProductType(), forSaleOwnerRequest.getNumberOfRooms(),
                 forSaleOwnerRequest.getBuildingAge(), forSaleOwnerRequest.getBalcony(),
                 forSaleOwnerRequest.getFurnished(),owner,city));
         return ForSaleOwnerResponse.from(forSale);
@@ -40,11 +40,11 @@ public class ForSaleOwnerManager implements ForSaleOwnerService {
 
     @Override
     public ForSaleOwnerResponse updateOwnerSale(Long id, ForSaleOwnerRequest forSaleOwnerRequest) {
-        ForSaleOwner forSale =forSaleOwnerRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"));
+        ForSaleOwner forSale =forSaleOwnerRepository.findById(id).orElseThrow(()->new ApiRequestException("Could not be updated . No data found"));
         forSale.setListingDate(forSaleOwnerRequest.getListingDate());
         forSale.setAdvertTitle(forSaleOwnerRequest.getAdvertTitle());
         forSale.setPrice(forSaleOwnerRequest.getPrice());
-        forSale.setImmovablesTypes(forSaleOwnerRequest.getImmovablesTypes());
+        forSale.setProductType(forSaleOwnerRequest.getProductType());
         forSale.setNumberOfRooms(forSaleOwnerRequest.getNumberOfRooms());
         forSale.setBuildingAge(forSaleOwnerRequest.getBuildingAge());
         forSale.setBalcony(forSaleOwnerRequest.getBalcony());
@@ -88,9 +88,9 @@ public class ForSaleOwnerManager implements ForSaleOwnerService {
     }
 
     @Override
-    public List<ForSaleOwnerResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes,Pageable pageable) {
+    public List<ForSaleOwnerResponse> findAllByProductType(ProductType productType, Pageable pageable) {
         return forSaleOwnerRepository
-                .findAllByImmovablesTypes(immovablesTypes,pageable)
+                .findAllByProductType(productType,pageable)
                 .stream()
                 .map(ForSaleOwnerResponse::from)
                 .toList();
@@ -137,26 +137,5 @@ public class ForSaleOwnerManager implements ForSaleOwnerService {
         ForSaleOwner forSale=forSaleOwnerRepository.getById(id);
         forSaleOwnerRepository.deleteById(forSale.getId());
     }
-
-/*
-    @Override
-    public List<ForSaleOwnerResponse> getAllForSaleOwnerWithParam(Optional<Long> ownerId) {
-        return ownerId.map(forSaleOwnerRepository::findByOwnerId)
-                .orElseGet(forSaleOwnerRepository::findAll)
-                .stream()
-                .map(ForSaleOwnerResponse::from)
-                .toList();
-    }
-
-    @Override
-    public List<ListByCityResponseO> getAllForSaleCityWithParam(Optional<Long> cityId) {
-        return cityId.map(forSaleOwnerRepository::findByCityId)
-                .orElseGet(forSaleOwnerRepository::findAll)
-                .stream()
-                .map(ListByCityResponseO::from)
-                .toList();
-    }
-
- */
 
 }

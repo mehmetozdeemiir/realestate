@@ -295,7 +295,7 @@ Consider defining a bean of type 'org.springframework.data.redis.core.RedisTempl
 2022-01-19 01:23:09,146 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
 2022-01-19 01:23:09,148 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 1 ms
 2022-01-19 01:23:09,546 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-2] Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2022-01-19 01:27:04,592 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-6] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.graduationproject.realestate.entities.ImmovablesTypes` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.graduationproject.realestate.entities.ImmovablesTypes` from Object value (token `JsonToken.START_OBJECT`)<LF> at [Source: (PushbackInputStream); line: 1, column: 1]]
+2022-01-19 01:27:04,592 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-6] Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `com.graduationproject.realestate.entities.ProductType` from Object value (token `JsonToken.START_OBJECT`); nested exception is com.fasterxml.jackson.databind.exc.MismatchedInputException: Cannot deserialize value of type `com.graduationproject.realestate.entities.ProductType` from Object value (token `JsonToken.START_OBJECT`)<LF> at [Source: (PushbackInputStream); line: 1, column: 1]]
 2022-01-19 01:29:25,842 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 17596 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
 2022-01-19 01:29:25,845 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
 2022-01-19 01:29:25,947 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
@@ -371,8 +371,8 @@ Consider defining a bean of type 'org.springframework.data.redis.core.RedisTempl
 2022-01-19 01:29:55,466 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-01-19 01:29:55,466 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
 2022-01-19 01:29:55,468 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 1 ms
-2022-01-19 01:29:56,017 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]] with root cause
-java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]
+2022-01-19 01:29:56,017 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]] with root cause
+java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]
 	at org.hibernate.query.spi.QueryParameterBindingValidator.validate(QueryParameterBindingValidator.java:54)
 	at org.hibernate.query.spi.QueryParameterBindingValidator.validate(QueryParameterBindingValidator.java:27)
 	at org.hibernate.query.internal.QueryParameterBindingImpl.validate(QueryParameterBindingImpl.java:90)
@@ -516,7 +516,7 @@ java.lang.IllegalArgumentException: Parameter value [EV] did not match expected 
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2022-01-19 01:34:17,657 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-4] Error parsing HTTP request header
  Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
-java.lang.IllegalArgumentException: Invalid character found in the request target [/api/for-rent-estate-agent-immovables-types?immovablesTypes=[EV] ]. The valid characters are defined in RFC 7230 and RFC 3986
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/for-rent-estate-agent-immovables-types?productType=[EV] ]. The valid characters are defined in RFC 7230 and RFC 3986
 	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
 	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:269)
 	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
@@ -566,8 +566,8 @@ org.springframework.security.web.firewall.RequestRejectedException: The request 
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-01-19 01:36:25,219 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]] with root cause
-java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ImmovablesTypes (n/a)]
+2022-01-19 01:36:25,219 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-4] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]; nested exception is java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]] with root cause
+java.lang.IllegalArgumentException: Parameter value [EV] did not match expected type [com.graduationproject.realestate.entities.ProductType (n/a)]
 	at org.hibernate.query.spi.QueryParameterBindingValidator.validate(QueryParameterBindingValidator.java:54)
 	at org.hibernate.query.spi.QueryParameterBindingValidator.validate(QueryParameterBindingValidator.java:27)
 	at org.hibernate.query.internal.QueryParameterBindingImpl.validate(QueryParameterBindingImpl.java:90)
@@ -784,7 +784,7 @@ java.lang.IllegalArgumentException: Parameter value [EV] did not match expected 
 2022-01-19 01:40:13,732 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8888-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
 2022-01-19 01:40:13,733 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Initializing Servlet 'dispatcherServlet'
 2022-01-19 01:40:13,736 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8888-exec-2] Completed initialization in 2 ms
-2022-01-19 01:40:14,265 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-2] Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'immovablesTypes' for method parameter type String is not present]
+2022-01-19 01:40:14,265 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8888-exec-2] Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'productType' for method parameter type String is not present]
 2022-01-19 01:45:21,704 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting RealestateApplication using Java 17 on DESKTOP-2A32802 with PID 10136 (C:\PROJELER JAVA EN SON\realestate\target\classes started by Mehmet in C:\PROJELER JAVA EN SON\realestate)
 2022-01-19 01:45:21,706 INFO org.springframework.boot.SpringApplication [restartedMain] The following profiles are active: dev
 2022-01-19 01:45:21,841 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable

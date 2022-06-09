@@ -4,14 +4,12 @@ import com.graduationproject.realestate.business.abstracts.ForRentEstateAgentSer
 import com.graduationproject.realestate.entities.City;
 import com.graduationproject.realestate.entities.EstateAgent;
 import com.graduationproject.realestate.entities.ForRentEstateAgent;
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.exceptions.ApiRequestException;
-import com.graduationproject.realestate.repository.CityRepository;
-import com.graduationproject.realestate.repository.EstateAgentRepository;
 import com.graduationproject.realestate.repository.ForRentEstateAgentRepository;
 import com.graduationproject.realestate.request.ForRentEstateAgentRequest;
+import com.graduationproject.realestate.response.ForRentEstateAgentConverter;
 import com.graduationproject.realestate.response.ForRentEstateAgentResponse;
-import com.graduationproject.realestate.response.ListByCityResponseE;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -27,34 +25,35 @@ import java.util.Optional;
 public class ForRentEstateAgentManager implements ForRentEstateAgentService {
    //private final RedisTemplate<String,List<ForRentEstateAgentResponse>> redisTemplate;
     private final ForRentEstateAgentRepository forRentEstateAgentRepository;
-    private final CityRepository cityRepository;
-    private final EstateAgentRepository estateAgentRepository;
+    private final CityManager cityManager;
+    private final EstateAgentManager estateAgentManager;
+    private final ForRentEstateAgentConverter forRentEstateAgentConverter;
 
     @Override
     public ForRentEstateAgentResponse addEstateAgentRent(ForRentEstateAgentRequest forRentEstateAgentRequest) {
-        EstateAgent estateAgent = estateAgentRepository.findById(forRentEstateAgentRequest.getEstateAgentId()).get();
-        City city =cityRepository.findByCityNameAndDistrict(forRentEstateAgentRequest.getCityName(), forRentEstateAgentRequest.getDistrict());
+        EstateAgent estateAgent = estateAgentManager.findById(forRentEstateAgentRequest.getEstateAgentId());//repodan çağırmıyorum service de bu iş yapılıyor tekrardan repoya indirgenmemeli
+        City city =cityManager.findByCityNameAndDistrict(forRentEstateAgentRequest.getCityName(), forRentEstateAgentRequest.getDistrict());
         ForRentEstateAgent forRent=forRentEstateAgentRepository.save(new ForRentEstateAgent( forRentEstateAgentRequest.getListingDate(),
                 forRentEstateAgentRequest.getAdvertTitle(), forRentEstateAgentRequest.getPrice(),
-                forRentEstateAgentRequest.getImmovablesTypes(), forRentEstateAgentRequest.getNumberOfRooms(),
+                forRentEstateAgentRequest.getProductType(), forRentEstateAgentRequest.getNumberOfRooms(),
                 forRentEstateAgentRequest.getBuildingAge(), forRentEstateAgentRequest.getBalcony(),
                 forRentEstateAgentRequest.getFurnished(),estateAgent,city));
-        return ForRentEstateAgentResponse.from(forRent);
+        return forRentEstateAgentConverter.from(forRent);
     }
 
     @Override
     public ForRentEstateAgentResponse updateEstateAgentRent(Long id, ForRentEstateAgentRequest forRentEstateAgentRequest) {
-        ForRentEstateAgent forRent =forRentEstateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Güncellenemedi. İlgili kayıt bulunamadı"+ id));
+        ForRentEstateAgent forRent =forRentEstateAgentRepository.findById(id).orElseThrow(()->new ApiRequestException("Could not be updated . No data found"+ id));
         forRent.setListingDate(forRentEstateAgentRequest.getListingDate());
         forRent.setAdvertTitle(forRentEstateAgentRequest.getAdvertTitle());
         forRent.setPrice(forRentEstateAgentRequest.getPrice());
-        forRent.setImmovablesTypes(forRentEstateAgentRequest.getImmovablesTypes());
+        forRent.setProductType(forRentEstateAgentRequest.getProductType());
         forRent.setNumberOfRooms(forRentEstateAgentRequest.getNumberOfRooms());
         forRent.setBuildingAge(forRentEstateAgentRequest.getBuildingAge());
         forRent.setBalcony(forRentEstateAgentRequest.getBalcony());
         forRent.setFurnished(forRentEstateAgentRequest.getFurnished());
         ForRentEstateAgent updatedRent= forRentEstateAgentRepository.save(forRent);
-        return ForRentEstateAgentResponse.from(updatedRent);
+        return forRentEstateAgentConverter.from(updatedRent);
     }
 
     @Override
@@ -62,18 +61,10 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         return estateAgentId.map(forRentEstateAgentRepository::findByEstateAgentId)
                 .orElseGet(forRentEstateAgentRepository::findAll)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
-    @Override
-    public List<ListByCityResponseE> getAllForRentCityWithParam(Optional<Long> cityId) {
-        return cityId.map(forRentEstateAgentRepository::findByCityId)
-                .orElseThrow(()->new ApiRequestException(" İlgili kayıt bulunamadı "+ cityId))
-                .stream()
-                .map(ListByCityResponseE::from)
-                .toList();
-    }
 
     /*@Override //@Cachable araştır
     public List<ForRentEstateAgentResponse> getAllByCityName(Optional<String> cityName) {
@@ -85,22 +76,23 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         }
         return result;
     }*/
+
     @Override
     public List<ForRentEstateAgentResponse> getAllByPrice(Long price,int no,int size) {
         Pageable pageables= PageRequest.of(no,size);//pagination icin bir yöntem
         return forRentEstateAgentRepository
                 .findAllByPriceLessThanEqual(price,pageables)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
     @Override
-    public List<ForRentEstateAgentResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes, Pageable pageable) {
+    public List<ForRentEstateAgentResponse> findAllByProductType(ProductType productType, Pageable pageable) {
         return forRentEstateAgentRepository
-                .findAllByImmovablesTypes(immovablesTypes,pageable)
+                .findAllByProductType(productType,pageable)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
@@ -109,7 +101,7 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         return forRentEstateAgentRepository
                 .findAllByListingDateLessThanEqual(listingDate,pageable)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
@@ -118,7 +110,7 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         return forRentEstateAgentRepository
                 .findAllByPriceLessThanEqualAndCity_CityNameAndCity_District(price,cityName, district, pageable)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
@@ -127,7 +119,7 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         return forRentEstateAgentRepository
                 .findAllByPriceLessThanEqualAndBuildingAgeIsLessThanEqualAndBalconyAndFurnishedAndCity_CityNameAndCity_District(price, buildingAge, balcony, furnished, cityName, district,pageable)
                 .stream()
-                .map(ForRentEstateAgentResponse::from)
+                .map(forRentEstateAgentConverter::from)
                 .toList();
     }
 
@@ -136,6 +128,8 @@ public class ForRentEstateAgentManager implements ForRentEstateAgentService {
         ForRentEstateAgent forRent=forRentEstateAgentRepository.getById(id);
         forRentEstateAgentRepository.deleteById(forRent.getId());
     }
+
+
 
 
 }

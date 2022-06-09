@@ -1,7 +1,9 @@
 package com.graduationproject.realestate.business.concretes;
 
 import com.graduationproject.realestate.business.abstracts.OwnerService;
+import com.graduationproject.realestate.entities.EstateAgent;
 import com.graduationproject.realestate.entities.Owner;
+import com.graduationproject.realestate.exceptions.ApiRequestException;
 import com.graduationproject.realestate.repository.OwnerRepository;
 import com.graduationproject.realestate.request.OwnerRequest;
 import com.graduationproject.realestate.response.OwnerResponse;
@@ -45,5 +47,9 @@ public class OwnerManager implements OwnerService {
                 .stream()
                 .map(OwnerResponse::from)
                 .toList();
+    }
+
+    protected Owner findById(Long id){
+        return ownerRepository.findById(id).orElseThrow(()->new ApiRequestException("No records found"));
     }
 }

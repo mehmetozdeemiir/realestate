@@ -29,14 +29,6 @@ public class Owner {
         this.contactNumber = contactNumber;
     }
 
-    public static Owner from(OwnerRequest ownerRequest){
-        return Owner.builder()
-                .firstName(ownerRequest.getFirstName())
-                .lastName(ownerRequest.getLastName())
-                .contactNumber(ownerRequest.getContactNumber())
-                .build();
-    }
-
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
     private Set<ForRentOwner> forRentOwners;
 

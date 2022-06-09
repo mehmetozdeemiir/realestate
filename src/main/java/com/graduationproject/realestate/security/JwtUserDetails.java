@@ -29,8 +29,8 @@ public class JwtUserDetails implements UserDetails {
         this.authorities = authorities;
     }
     public static JwtUserDetails create(User user){
-        List<GrantedAuthority> authorityList =new ArrayList<>(); //?
-        authorityList.add(new SimpleGrantedAuthority("user"));//?
+        List<GrantedAuthority> authorityList =new ArrayList<>();
+        authorityList.add(new SimpleGrantedAuthority("user"));
         return new JwtUserDetails(user.getId(), user.getUserName(), user.getPassword(),authorityList);
     }
 

@@ -10,38 +10,39 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Slf4j
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/v1/api/estate-agents")
 @RequiredArgsConstructor
+@Slf4j
 public class EstateAgentController {
     private final EstateAgentService estateAgentService;
 
-    @GetMapping("/estateagents")
+    @GetMapping
     public List<EstateAgentResponse> getAllEstateAgents(){
-        log.info("getAllEstateAgents metodu başladı");
+        log.info("getAllEstateAgents method started");
         return estateAgentService.getAllEstateAgent();
     }
 
-    @PostMapping("/estateagents")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EstateAgentResponse addEstateAgent( @RequestBody EstateAgentRequest estateAgentRequest){
-        log.info("addEstateAgent metodu başladı");
-        log.info("Emlakçı eklendi: {}",estateAgentRequest);
+    public EstateAgentResponse addEstateAgent(@Valid @RequestBody EstateAgentRequest estateAgentRequest){
+        log.info("addEstateAgent method started");
+        log.info("Estate agent added: {}",estateAgentRequest);
         return estateAgentService.addEstateAgent(estateAgentRequest);
     }
 
-    @PutMapping("/estateagents/{id}")
-    public EstateAgentResponse updateEstateAgent(@Valid @PathVariable Long id, @RequestBody EstateAgentRequest estateAgentRequest){
-        log.info("updateEstateAgent metodu başladı");
-        log.info("Estate Agent güncellendi: {} {}",id,estateAgentRequest);
+    @PutMapping("/{id}")
+    public EstateAgentResponse updateEstateAgent( @PathVariable Long id, @Valid @RequestBody EstateAgentRequest estateAgentRequest){
+        log.info("updateEstateAgent method started");
+        log.info("Estate agent updated: {} {}",id,estateAgentRequest);
         return estateAgentService.updateEstateAgent(id,estateAgentRequest);
     }
 
-    @DeleteMapping("/estateagents/{id}")
+    @DeleteMapping("/{id}")
     public void deleteEstateAgents(@PathVariable Long id){
-        log.info("deleteEstateAgent metodu başladı");
-        log.info("Estate Agent silindi: {}",id);
+        log.info("deleteEstateAgent method started");
+        log.info("Estate agent deleted: {}",id);
         estateAgentService.deleteEstateAgent(id);
     }
 

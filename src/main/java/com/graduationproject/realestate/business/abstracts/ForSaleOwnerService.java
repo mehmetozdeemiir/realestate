@@ -1,6 +1,6 @@
 package com.graduationproject.realestate.business.abstracts;
 
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.request.BigFilterRequest;
 import com.graduationproject.realestate.request.ForSaleOwnerRequest;
 import com.graduationproject.realestate.response.ForSaleOwnerResponse;
@@ -22,7 +22,7 @@ public interface ForSaleOwnerService {
 
     List<ForSaleOwnerResponse> getAllCheapHouseByCityName(String cityName);
 
-    List<ForSaleOwnerResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes,Pageable pageable);
+    List<ForSaleOwnerResponse> findAllByProductType(ProductType productType, Pageable pageable);
 
     List<ForSaleOwnerResponse> getAllByListingDate(LocalDate listingDate , Pageable pageable);
 

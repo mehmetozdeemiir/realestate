@@ -1,9 +1,8 @@
 package com.graduationproject.realestate.business.abstracts;
 
-import com.graduationproject.realestate.entities.ImmovablesTypes;
+import com.graduationproject.realestate.entities.ProductType;
 import com.graduationproject.realestate.request.ForSaleEstateAgentRequest;
 import com.graduationproject.realestate.response.ForSaleEstateAgentResponse;
-import com.graduationproject.realestate.response.ListByCityResponseE;
 import org.springframework.data.domain.Pageable;
 import java.time.LocalDate;
 import java.util.List;
@@ -17,15 +16,13 @@ public interface ForSaleEstateAgentService {
 
     List<ForSaleEstateAgentResponse> getAllForSaleEstateAgentWithParam(Optional<Long> estateAgentId);
 
-    List<ListByCityResponseE> getAllForSaleCityWithParam(Optional<Long> cityId);
-
     List<ForSaleEstateAgentResponse> getAllByCityName(String cityName, Pageable pageable);
 
     List<ForSaleEstateAgentResponse> getAllByPrice(Long price,Pageable pageable);
 
     List<ForSaleEstateAgentResponse> getAllCheapHouseByCityName(String cityName,Pageable pageable);
 
-    List<ForSaleEstateAgentResponse> findAllByImmovablesTypes(ImmovablesTypes immovablesTypes,Pageable pageable);
+    List<ForSaleEstateAgentResponse> findAllByProductType(ProductType productType, Pageable pageable);
 
     List<ForSaleEstateAgentResponse> getAllByListingDate(LocalDate listingDate,Pageable pageable);
 
