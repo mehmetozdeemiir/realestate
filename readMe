@@ -1,4 +1,4 @@
 emlak sistemi backend projesi
 
-Spring framework , katmanlı mimari , jwt , exception handling , loglama(slf4j), custom anotation , request response yapıları kullanılmıştır. Clean code ve solid prensiplerine uyulmuştur.
+Spring framework , katmanlı mimari , jwt , exception handling , unit test ,loglama(slf4j), custom anotation , request response yapıları kullanılmıştır. Clean code ve solid prensiplerine uyulmuştur.
 
